@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Berlin Fuel</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Berlin Fuel">
+<meta name="theme-color" content="#2f4a68">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+  :root{
+    --paper:#ffffff;--ink:#1e293b;--muted:#64748b;--faint:#94a3b8;
+    --line:#e6ebf1;--accent:#3f5b7c;--accent-deep:#2f4a68;
+    --long-tint:#eef2f7;--badge-bg:#e7eef5;--badge-ink:#2f4a68;--done:#16a34a;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:#eef1f5;line-height:1.4;
+    padding-bottom:40px;
+  }
+  /* Sticky header */
+  header{
+    position:sticky;top:0;z-index:20;background:var(--accent-deep);color:#fff;
+    padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.12);
+  }
+  .htop{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  h1{font-size:17px;margin:0;font-weight:800;letter-spacing:-.01em;}
+  h1 small{display:block;font-size:11px;font-weight:500;color:#b8c6d6;letter-spacing:.04em;margin-top:1px;}
+  .hbtns{display:flex;gap:7px;}
+  .hbtn{
+    background:rgba(255,255,255,.14);color:#fff;border:none;border-radius:8px;
+    font-size:12px;font-weight:700;padding:7px 11px;cursor:pointer;
+  }
+  .hbtn:active{background:rgba(255,255,255,.28);}
+  .prog{margin-top:11px;}
+  .progbar{height:7px;background:rgba(255,255,255,.18);border-radius:20px;overflow:hidden;}
+  .progfill{height:100%;background:#7fd39b;width:0;transition:width .3s;}
+  .progtxt{font-size:11.5px;color:#cdd9e6;margin-top:5px;display:flex;justify-content:space-between;}
+
+  .wrap{max-width:640px;margin:0 auto;padding:12px 12px 0;}
+
+  .a2hs{
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:10px 12px;margin:4px 0 12px;font-size:12px;color:var(--muted);
+    display:flex;align-items:center;gap:10px;
+  }
+  .a2hs b{color:var(--accent-deep);}
+  .a2hs button{margin-left:auto;background:none;border:none;color:var(--faint);font-size:18px;cursor:pointer;padding:0 4px;}
+
+  .week-head{display:flex;align-items:baseline;border-left:4px solid var(--accent);padding:2px 0 4px 10px;margin:16px 0 8px;}
+  .wk-no{font-size:13.5px;font-weight:800;margin-right:9px;}
+  .wk-dates{font-size:11.5px;color:var(--ink);font-weight:600;}
+  .phase{margin-left:auto;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);}
+
+  .day{background:var(--paper);border:1px solid var(--line);border-radius:11px;margin-bottom:8px;overflow:hidden;}
+  .day.long{background:var(--long-tint);border-color:#d9e2ec;}
+  .day.rest{background:#fafbfc;}
+  .day.wake{border-color:var(--accent);border-width:1.5px;}
+  .day.race{background:var(--accent-deep);border-color:var(--accent-deep);}
+  .drow{display:flex;align-items:center;padding:11px 12px;cursor:pointer;gap:11px;}
+  .cbox{
+    width:26px;height:26px;min-width:26px;border:2px solid var(--faint);border-radius:8px;
+    background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  }
+  .cbox svg{width:15px;height:15px;opacity:0;}
+  .dmeta{flex:1;min-width:0;}
+  .ddate{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .dsess{font-size:14px;font-weight:700;color:var(--ink);margin-top:1px;}
+  .gel{font-size:10px;font-weight:800;color:var(--badge-ink);background:var(--badge-bg);border-radius:20px;padding:4px 9px;white-space:nowrap;}
+  .chev{color:var(--faint);font-size:13px;transition:transform .2s;margin-left:2px;}
+  .day.open .chev{transform:rotate(90deg);}
+
+  .fuel{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 12px;}
+  .day.open .fuel{max-height:400px;padding-bottom:11px;}
+  .fuel .row{display:flex;gap:8px;font-size:12.5px;color:#475569;margin:3px 0;padding-left:37px;}
+  .fuel .lbl{font-weight:800;color:var(--accent-deep);min-width:48px;}
+  .fuel .note{font-size:12.5px;color:#64748b;font-style:italic;padding-left:37px;margin:2px 0;}
+
+  /* today */
+  .day.today{box-shadow:0 0 0 2px var(--accent);}
+  .todaytag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.08em;background:var(--accent);color:#fff;border-radius:5px;padding:2px 6px;margin-left:6px;vertical-align:1px;}
+
+  /* done state */
+  .day.done .dsess{text-decoration:line-through;color:var(--faint);}
+  .day.done{opacity:.62;}
+  .day.done .cbox{background:var(--done);border-color:var(--done);}
+  .day.done .cbox svg{opacity:1;}
+  .day.done.hide{display:none;}
+
+  /* race variant text */
+  .day.race .ddate{color:#b8c6d6;}
+  .day.race .dsess{color:#fff;}
+  .day.race .fuel .row{color:#dbe6f1;}
+  .day.race .fuel .lbl{color:#fff;}
+  .day.race .gel{background:#fff;color:var(--accent-deep);}
+  .day.race .cbox{border-color:#fff;}
+  .day.race.done .dsess{color:#9fb3c8;}
+
+  .foot{font-size:11px;color:var(--faint);text-align:center;padding:18px 12px 0;line-height:1.6;}
+</style>
+</head>
+<body>
+<header>
+  <div class="htop">
+    <h1>Berlin Fuel<small>Daily checklist to race day</small></h1>
+    <div class="hbtns">
+      <button class="hbtn" id="todayBtn">Today</button>
+      <button class="hbtn" id="hideBtn">Hide done</button>
+    </div>
+  </div>
+  <div class="prog">
+    <div class="progbar"><div class="progfill" id="progfill"></div></div>
+    <div class="progtxt"><span id="progtxt">0 of 0 done</span><span id="resetBtn" style="cursor:pointer;color:#9fb3c8;">Reset</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="a2hs" id="a2hs">
+    <span>Add to your home screen: tap <b>Share</b>, then <b>Add to Home Screen</b>. Your checkmarks save on this phone.</span>
+    <button id="a2hsClose">&times;</button>
+  </div>
+  <div id="app"></div>
+  <p class="foot">Gels only on runs over 8 miles. Star days: wake early, rehearse race breakfast.<br>Chobani = Protein Complete drinkable. Shake = 2 scoops Orgain or 1 Core Power.</p>
+</div>
+
+<script>
+const E={b:"Half bagel with honey, or a banana. Nothing heavy.",d:"Water. LMNT if hot.",a:"Meal with protein. Chobani is an easy grab."};
+const ES={b:"Half bagel with honey, or a banana.",d:"Water. LMNT if hot.",a:"Chobani, or 2 scoops Orgain / 1 Core Power, then a meal."};
+const Q={b:"Bagel with honey or jam + a banana, 15 to 20 min before. Coffee.",d:"Water. LMNT if hot. No gels.",a:"Chobani + a banana, or 2 scoops Orgain / 1 Core Power."};
+const ST={b:"Carbs + protein beforehand. Chobani + banana works.",a:"Chobani, or 2 scoops Orgain / 1 Core Power within the hour."};
+const MOB={note:"Recovery day. Eat normally, hit 150g protein."};
+const RST={note:"Rest day. Eat normally, hit 150g protein."};
+
+const WEEKS=[
+ {n:"Week 7",dates:"Jul 1 to 5",phase:"Build",days:[
+   {id:"2026-07-01",l:"Wed Jul 1",s:"3.75mi Easy",f:E},
+   {id:"2026-07-02",l:"Thu Jul 2",s:"Tempo 2 to 1, 5mi + Full Body",f:Q},
+   {id:"2026-07-03",l:"Fri Jul 3",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-07-04",l:"Sat Jul 4",s:"9.5mi Long Run",cls:"long",g:"3 Honey Stinger",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking. First gel at 30 min tops you off.",d:"3 Honey Stinger gels, first by 30 min then every 35 min. Water + LMNT.",a:"Chobani + the other half bagel or a banana, then a real meal."}},
+   {id:"2026-07-05",l:"Sun Jul 5",s:"6mi Easy + Yoga",f:E},
+ ]},
+ {n:"Week 8",dates:"Jul 6 to 12",phase:"Build",days:[
+   {id:"2026-07-06",l:"Mon Jul 6",s:"Legs and Core",cls:"cross",f:ST},
+   {id:"2026-07-07",l:"Tue Jul 7",s:"Broken Miles, 7.5mi",f:Q},
+   {id:"2026-07-08",l:"Wed Jul 8",s:"4.5mi Easy",f:E},
+   {id:"2026-07-09",l:"Thu Jul 9",s:"Rolling 800s, 4mi + Full Body",f:Q},
+   {id:"2026-07-10",l:"Fri Jul 10",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-07-11",l:"Sat Jul 11",s:"11mi Long Run",cls:"long",g:"3 Honey Stinger",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking. First gel at 30 min.",d:"3 gels, finish your Honey Stinger, every 35 min from 30 min. Water + LMNT.",a:"Chobani + the other half bagel or a banana, then a real meal."}},
+   {id:"2026-07-12",l:"Sun Jul 12",s:"5mi Easy + Yoga",f:E},
+ ]},
+ {n:"Week 9",dates:"Jul 13 to 19",phase:"Build",days:[
+   {id:"2026-07-13",l:"Mon Jul 13",s:"Lower Body Strength",cls:"cross",f:ST},
+   {id:"2026-07-14",l:"Tue Jul 14",s:"Mile Repeats, 6mi",f:Q},
+   {id:"2026-07-15",l:"Wed Jul 15",s:"3.75mi Easy",f:E},
+   {id:"2026-07-16",l:"Thu Jul 16",s:"Over and Unders 1km, 5.5mi + Full Body",f:Q},
+   {id:"2026-07-17",l:"Fri Jul 17",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-07-18",l:"Sat Jul 18",s:"13.1mi Half Marathon",cls:"long",g:"4 Maurten",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking. First gel at 30 min.",d:"4 Maurten regular gels, every 35 min from 30 min. Water + LMNT.",a:"Chobani + the other half bagel or a banana, then a full meal."}},
+   {id:"2026-07-19",l:"Sun Jul 19",s:"5.5mi Easy + Yoga",f:E},
+ ]},
+ {n:"Week 10",dates:"Jul 20 to 26",phase:"Build · Portugal",days:[
+   {id:"2026-07-20",l:"Mon Jul 20",s:"Over and Unders Miles, 5mi + Full Body",f:Q},
+   {id:"2026-07-21",l:"Tue Jul 21",s:"4mi Easy",f:E},
+   {id:"2026-07-22",l:"Wed Jul 22",s:"1km Repeats, 6.5mi",f:Q},
+   {id:"2026-07-23",l:"Thu Jul 23",s:"Legs and Core",cls:"cross",f:ST},
+   {id:"2026-07-24",l:"Fri Jul 24",s:"5mi Easy + Stretch",f:E},
+   {id:"2026-07-25",l:"Sat Jul 25",s:"15mi Race Practice",cls:"long",g:"5 Maurten · 4+1 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"5 gels, one every 30 min: 4 regular then 1 caffeine in the back third. Water + LMNT.",a:"Chobani + a bagel, then a big meal."}},
+   {id:"2026-07-26",l:"Sun Jul 26",s:"Yoga",cls:"cross",f:MOB},
+ ]},
+ {n:"Week 11",dates:"Jul 27 to Aug 2",phase:"Portugal · reduced",days:[
+   {id:"2026-07-27",l:"Mon Jul 27",s:"4.5mi Easy + Full Body",f:ES},
+   {id:"2026-07-28",l:"Tue Jul 28",s:"Rest",cls:"rest",f:RST},
+   {id:"2026-07-29",l:"Wed Jul 29",s:"5mi Easy",f:E},
+   {id:"2026-07-30",l:"Thu Jul 30",s:"3.75mi Easy + Legs and Core",f:ES},
+   {id:"2026-07-31",l:"Fri Jul 31",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-08-01",l:"Sat Aug 1",s:"7mi Long Run",cls:"long",g:"no gels",f:{b:"Bagel with honey, or a banana. LMNT on waking.",d:"Water + LMNT. No gels (under 8 mi).",a:"Chobani + carbs, or a meal with protein."}},
+   {id:"2026-08-02",l:"Sun Aug 2",s:"Yoga",cls:"cross",f:MOB},
+ ]},
+ {n:"Week 12",dates:"Aug 3 to 9",phase:"Portugal · reduced",days:[
+   {id:"2026-08-03",l:"Mon Aug 3",s:"3.25mi Easy + Legs and Core",f:ES},
+   {id:"2026-08-04",l:"Tue Aug 4",s:"Rest",cls:"rest",f:RST},
+   {id:"2026-08-05",l:"Wed Aug 5",s:"4mi Easy",f:E},
+   {id:"2026-08-06",l:"Thu Aug 6",s:"3.25mi Easy + Full Body",f:ES},
+   {id:"2026-08-07",l:"Fri Aug 7",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-08-08",l:"Sat Aug 8",s:"7mi Long Run",cls:"long",g:"no gels",f:{b:"Bagel with honey, or a banana. LMNT on waking.",d:"Water + LMNT. No gels (under 8 mi).",a:"Chobani + carbs, or a meal with protein."}},
+   {id:"2026-08-09",l:"Sun Aug 9",s:"Yoga",cls:"cross",f:MOB},
+ ]},
+ {n:"Week 13",dates:"Aug 10 to 16",phase:"Peak",days:[
+   {id:"2026-08-10",l:"Mon Aug 10",s:"Legs and Core",cls:"cross",f:ST},
+   {id:"2026-08-11",l:"Tue Aug 11",s:"5.5mi Easy",f:E},
+   {id:"2026-08-12",l:"Wed Aug 12",s:"800m Repeats, 6mi",f:Q},
+   {id:"2026-08-13",l:"Thu Aug 13",s:"3.25mi Easy + Full Body",f:ES},
+   {id:"2026-08-14",l:"Fri Aug 14",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-08-15",l:"Sat Aug 15",s:"15mi Race Practice",cls:"long",g:"5 Maurten · 4+1 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"5 gels, one every 30 min: 4 regular then 1 caffeine in the back third. Water + LMNT.",a:"Chobani + a bagel, then a big meal."}},
+   {id:"2026-08-16",l:"Sun Aug 16",s:"Tempo 2 to 1, 5mi + Yoga",f:Q},
+ ]},
+ {n:"Week 14",dates:"Aug 17 to 23",phase:"Peak",days:[
+   {id:"2026-08-17",l:"Mon Aug 17",s:"Lower Body Endurance",cls:"cross",f:ST},
+   {id:"2026-08-18",l:"Tue Aug 18",s:"Mile Up and Overs, 6mi",f:Q},
+   {id:"2026-08-19",l:"Wed Aug 19",s:"4.5mi Easy",f:E},
+   {id:"2026-08-20",l:"Thu Aug 20",s:"Progression Run, 4mi + Full Body",f:Q},
+   {id:"2026-08-21",l:"Fri Aug 21",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-08-22",l:"Sat Aug 22",s:"17mi Long Run",cls:"long",g:"6 Maurten · 4+2 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"6 gels, one every 30 min: 4 regular then 2 caffeine from halfway. Aim 60g carbs/hr. Water + LMNT.",a:"Chobani + a bagel now, full meal within the hour."}},
+   {id:"2026-08-23",l:"Sun Aug 23",s:"6mi Easy + Yoga",f:E},
+ ]},
+ {n:"Week 15",dates:"Aug 24 to 30",phase:"Peak",days:[
+   {id:"2026-08-24",l:"Mon Aug 24",s:"Legs and Core",cls:"cross",f:ST},
+   {id:"2026-08-25",l:"Tue Aug 25",s:"Descending Intervals, 6.5mi",f:Q},
+   {id:"2026-08-26",l:"Wed Aug 26",s:"3.25mi Easy",f:E},
+   {id:"2026-08-27",l:"Thu Aug 27",s:"Tempo 3 Miles, 4.5mi + Full Body",f:Q},
+   {id:"2026-08-28",l:"Fri Aug 28",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-08-29",l:"Sat Aug 29",s:"19mi Race Practice",cls:"long wake",star:1,g:"7 Maurten · 5+2 caf",f:{b:"Wake early. Full breakfast 2.5 to 3 hr before: whole bagel with honey or jam + banana + small bowl of oatmeal + coffee (about 100 to 130g carbs). LMNT 15 min before.",d:"7 gels, one every 30 min: 5 regular then 2 caffeine from halfway. 60g carbs/hr. Water + LMNT.",a:"Aggressive refuel: Chobani + a bagel now, then a big carb and protein meal."}},
+   {id:"2026-08-30",l:"Sun Aug 30",s:"5.5mi Easy + Yoga",f:E},
+ ]},
+ {n:"Week 16",dates:"Aug 31 to Sep 6",phase:"Peak",days:[
+   {id:"2026-08-31",l:"Mon Aug 31",s:"5mi Easy + Lower Body",f:ES},
+   {id:"2026-09-01",l:"Tue Sep 1",s:"Tempo 2 Miles, 5.5mi",f:Q},
+   {id:"2026-09-02",l:"Wed Sep 2",s:"Rest",cls:"rest",f:RST},
+   {id:"2026-09-03",l:"Thu Sep 3",s:"400m Repeats, 4.5mi + Full Body",f:Q},
+   {id:"2026-09-04",l:"Fri Sep 4",s:"4mi Easy + Stretch",f:E},
+   {id:"2026-09-05",l:"Sat Sep 5",s:"22mi PEAK, dress rehearsal",cls:"long wake",star:1,g:"9 Maurten · 6+3 caf",f:{b:"Wake early. Your exact race breakfast 2.5 to 3 hr before: whole bagel with honey + banana + oatmeal + coffee. LMNT. Copy whatever works today onto race day.",d:"9 gels, one every 30 min: 6 regular then 3 caffeine from halfway. 60g carbs/hr. Water + LMNT.",a:"Chobani + a bagel now, full meal within the hour, LMNT to rehydrate."}},
+   {id:"2026-09-06",l:"Sun Sep 6",s:"Yoga",cls:"cross",f:MOB},
+ ]},
+ {n:"Week 17",dates:"Sep 7 to 13",phase:"Taper",days:[
+   {id:"2026-09-07",l:"Mon Sep 7",s:"Lower Body Endurance",cls:"cross",f:ST},
+   {id:"2026-09-08",l:"Tue Sep 8",s:"Steady into Tempo, 5mi",f:Q},
+   {id:"2026-09-09",l:"Wed Sep 9",s:"4mi Easy",f:E},
+   {id:"2026-09-10",l:"Thu Sep 10",s:"Broken Miles, 4.5mi + Full Body",f:Q},
+   {id:"2026-09-11",l:"Fri Sep 11",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-09-12",l:"Sat Sep 12",s:"15mi Race Practice",cls:"long",g:"5 Maurten · 4+1 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"5 gels, one every 30 min: 4 regular then 1 caffeine. Water + LMNT.",a:"Chobani + a bagel, then a meal."}},
+   {id:"2026-09-13",l:"Sun Sep 13",s:"5mi Easy + Yoga",f:E},
+ ]},
+ {n:"Week 18",dates:"Sep 14 to 20",phase:"Taper",days:[
+   {id:"2026-09-14",l:"Mon Sep 14",s:"4.5mi Easy + Full Body",f:ES},
+   {id:"2026-09-15",l:"Tue Sep 15",s:"Progressive Mile Repeats, 5mi",f:Q},
+   {id:"2026-09-16",l:"Wed Sep 16",s:"Rest",cls:"rest",f:RST},
+   {id:"2026-09-17",l:"Thu Sep 17",s:"Tempo 2.5mi, 4.5mi + Legs and Core",f:Q},
+   {id:"2026-09-18",l:"Fri Sep 18",s:"Stretch and Stability",cls:"cross",f:MOB},
+   {id:"2026-09-19",l:"Sat Sep 19",s:"9mi Long Run",cls:"long",g:"2 Maurten",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking. First gel at 30 min.",d:"2 Maurten regular gels, at 30 and 75 min. Water + LMNT.",a:"Chobani + a bagel, then a meal."}},
+   {id:"2026-09-20",l:"Sun Sep 20",s:"Yoga",cls:"cross",f:MOB},
+ ]},
+ {n:"Week 19",dates:"Sep 21 to 27",phase:"Race week",days:[
+   {id:"2026-09-21",l:"Mon Sep 21",s:"Ticking Over, Full Body",cls:"cross",f:ST},
+   {id:"2026-09-22",l:"Tue Sep 22",s:"Taper Fartlek, 5mi",f:Q},
+   {id:"2026-09-23",l:"Wed Sep 23",s:"Rest",cls:"rest",f:RST},
+   {id:"2026-09-24",l:"Thu Sep 24",s:"3.75mi Easy",f:E},
+   {id:"2026-09-25",l:"Fri Sep 25",s:"Stretch. Carb load",cls:"cross",f:{note:"Start raising carbs. Familiar foods, nothing new. Hit 150g protein."}},
+   {id:"2026-09-26",l:"Sat Sep 26",s:"Rest, optional shakeout. Carb load",cls:"rest",f:{note:"Big carb day. Lay out kit and gels tonight. Familiar foods only."}},
+   {id:"2026-09-27",l:"Sun Sep 27",s:"BMW BERLIN MARATHON, 26.2mi",cls:"race",star:1,g:"8 · 4+4 caf",f:{b:"Wake early. Rehearsed breakfast 2.5 to 3 hr before: whole bagel with honey + banana + oatmeal + coffee, 600 to 800 cal. LMNT.",d:"8 gels, one every 30 min: 4 regular, then 4 caffeine from about 26 km. Water with gels, electrolytes at aid stations.",a:"Celebrate, then refuel and rehydrate. You earned it."}},
+ ]},
+];
+
+const KEY="bfc_done_v1";
+let done=JSON.parse(localStorage.getItem(KEY)||"{}");
+let total=0; WEEKS.forEach(w=>total+=w.days.length);
+
+function todayISO(){
+  const n=new Date();
+  return n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");
+}
+const TID=todayISO();
+
+const CHK='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+function fuelHTML(f){
+  if(f.note) return '<div class="note">'+f.note+'</div>';
+  let h="";
+  if(f.b) h+='<div class="row"><span class="lbl">Before</span><span>'+f.b+'</span></div>';
+  if(f.d) h+='<div class="row"><span class="lbl">During</span><span>'+f.d+'</span></div>';
+  if(f.a) h+='<div class="row"><span class="lbl">After</span><span>'+f.a+'</span></div>';
+  return h;
+}
+
+function render(){
+  const app=document.getElementById("app");
+  app.innerHTML="";
+  WEEKS.forEach(w=>{
+    const wh=document.createElement("div");
+    wh.className="week-head";
+    wh.innerHTML='<span class="wk-no">'+w.n+'</span><span class="wk-dates">'+w.dates+'</span><span class="phase">'+w.phase+'</span>';
+    app.appendChild(wh);
+    w.days.forEach(day=>{
+      const el=document.createElement("div");
+      el.className="day "+(day.cls||"");
+      if(done[day.id]) el.classList.add("done");
+      if(day.id===TID) el.classList.add("today","open");
+      el.dataset.id=day.id;
+      const star=day.star?'<span style="color:var(--accent);font-weight:800">&#9733; </span>':"";
+      const tag=day.id===TID?'<span class="todaytag">TODAY</span>':"";
+      const gel=day.g?'<span class="gel">'+day.g+'</span>':"";
+      el.innerHTML=
+        '<div class="drow">'+
+          '<div class="cbox">'+CHK+'</div>'+
+          '<div class="dmeta"><div class="ddate">'+day.l+tag+'</div><div class="dsess">'+star+day.s+'</div></div>'+
+          gel+
+          '<span class="chev">&#9654;</span>'+
+        '</div>'+
+        '<div class="fuel">'+fuelHTML(day.f)+'</div>';
+      // toggle expand on row (but not checkbox)
+      el.querySelector(".drow").addEventListener("click",(e)=>{
+        if(e.target.closest(".cbox")) return;
+        el.classList.toggle("open");
+      });
+      el.querySelector(".cbox").addEventListener("click",(e)=>{
+        e.stopPropagation();
+        if(done[day.id]){delete done[day.id];} else {done[day.id]=true;}
+        localStorage.setItem(KEY,JSON.stringify(done));
+        el.classList.toggle("done");
+        if(hideOn) applyHide();
+        updateProg();
+      });
+      app.appendChild(el);
+    });
+  });
+  updateProg();
+}
+
+function updateProg(){
+  const n=Object.keys(done).filter(k=>done[k]).length;
+  document.getElementById("progfill").style.width=(total? (n/total*100):0)+"%";
+  document.getElementById("progtxt").textContent=n+" of "+total+" days done";
+}
+
+let hideOn=false;
+function applyHide(){
+  document.querySelectorAll(".day.done").forEach(d=>{
+    if(hideOn) d.classList.add("hide"); else d.classList.remove("hide");
+  });
+  document.querySelectorAll(".day:not(.done)").forEach(d=>d.classList.remove("hide"));
+}
+
+document.getElementById("hideBtn").addEventListener("click",function(){
+  hideOn=!hideOn; this.textContent=hideOn?"Show all":"Hide done"; applyHide();
+});
+document.getElementById("todayBtn").addEventListener("click",()=>{
+  const t=document.querySelector(".day.today");
+  if(t){t.classList.add("open"); t.scrollIntoView({behavior:"smooth",block:"center"});}
+  else alert("No training day scheduled for today. The plan runs Jul 1 to Sep 27.");
+});
+document.getElementById("resetBtn").addEventListener("click",()=>{
+  if(confirm("Clear all your checkmarks? This cannot be undone.")){
+    done={}; localStorage.setItem(KEY,"{}"); hideOn=false;
+    document.getElementById("hideBtn").textContent="Hide done";
+    render();
+  }
+});
+document.getElementById("a2hsClose").addEventListener("click",()=>{
+  document.getElementById("a2hs").style.display="none";
+  try{localStorage.setItem("bfc_a2hs","1");}catch(e){}
+});
+if(localStorage.getItem("bfc_a2hs")||window.navigator.standalone){
+  document.getElementById("a2hs").style.display="none";
+}
+
+render();
+// scroll to today on load
+window.addEventListener("load",()=>{
+  const t=document.querySelector(".day.today");
+  if(t) setTimeout(()=>t.scrollIntoView({behavior:"smooth",block:"center"}),200);
+});
+</script>
+</body>
+</html>
