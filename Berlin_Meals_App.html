@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Berlin Meals</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Berlin Meals">
+<meta name="theme-color" content="#2f4a68">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAXh0lEQVR4nO2daUBTx9rHz8kChLAbVgFBBNl3kFVENpXWvdrl1qttrXa7t9rt+mp7a+16q9a+t7e22ta22tqqtXIVd3ZQZBVZRFBWZV8DIUAS8n44eIjJmZCEJMTX5/dpMmfOzAT+mXlm5pznwWOe2YEBABW06e4AoLuAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQMKY7g5gWzc+YW9rKZUpGhsbHRX09A00t3SUVNTebrin4I1SHE1JLyyrnrSh7l5ufXNbwfWb99q65LRSfafpwC9nFP86UuWlOnAxu+h8ZoHkvWEBnmseX0Ck+wd4O7/4SX5bmkZHRw46jcYy0J9pwwkL9Hx53bKnl8fhOK65huxtLaNDfba+uCYhOlgTrVASE+bHZhlorTkV0FFxSBHsO3degIemW8ExbHFsqMssO003RKCvx4yNDNBOW6ox/dOKJOQ4rMdkeLk5P7MynnZ/wAjwcs0vqZr0RqUawnHc1JgdG+EfHepLXgrycbvT2KLqN1COqBCfrKtlA7wh7TSnLDo6cowKhKWVtbduN5E5FmZGam9FLBb3cQdPXcjr4w6SmRwLU7U3hEKPyYiPDtRac8qio+KQZYg/oqGaxWJxb/8A+XFUINRQQ5IIRSIiER7kZWaift2rBR0Vhx6T4e85Z66LA5lTVduoobZwHLcwMyE/tnX0aKghSQqvVxP6YNDpCfO1ZwUrhW7ZHO4ujnvfe1k2/3bDvYwrpcreyOMPv/v5D3LuIm0OU2M2kSMUifKKypXstSr0cXlXiysJWyfU3z09r6S7l6uFdpVCt8RBCXdw6Gz6NfWO9pRi4g+P/HTiQm//IOUtaudyTsm8AE89JoNOoyXODzmakqaddhVHR6cVSUyMDF97bqWml7Id3X17Dhyrqbur0VYkGeAN5RaOj1JBvm5WM8y01rSC6NbIQa5IGXS6taX58qQoYtcBx7BVS+ZX1TYODFKv+pRdyspiNcPs1fUr9v+c0tnTP5V6lCIjrzQy2Ftfj0nD8UULQrUpTUXQ0ZFDKBLda+s6fPISmcOg0/0956ir/uo7TVs/+Hr7v74/kZolGhsjMs1MjP76RBJNM1uxlPD4w1n5ZUTaz2uOrbWF1ppWBB0VBwF3gDcyKiA/zjA3kVNYBfjDI1eKK1PT8skcO2vOvEBP9bYin8yr1/nDIxiG4RgWHuSlzaYnRafFYWrM1tdjkh/Jn7h6ySm4IbnPER8VSKNp788yPDKaceU6kWbQ6VprVxF0VBx0Om2mDecvKxMkM1tkjkzVgkg0lnm1jPxobmoc6O2qiYZQZF+7MTjE12aLCqJbBilqnwPDsP4BXnl1vbI3FpfX/PLn5UnbvVZalRgTTJ6RxkYEFN+4JVZ3KyhGBYK03JJliZEq16AhdHTkkII7wPvuaOqoQDB5UZUYFQhzCyb2vmytLDzcnDTUFiV5RRXcAZ42W1QE3RWHQCjs4w5W3246eS7nk//8KvsYjnrJLSiXFF+cdg/ThULRpZxibbaoCDiE8QJQ6O7IAUw7IA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4ACYgDQALiAJCAOAAkIA4AiW69ZQ9MERqNFuzt4uPm6O5ib2dlwWbpG7ENxGJsdFTAHxH09g929XI7uvubWrvq77bX3+2Q7x2PQhz7d27ycLGXc89XR86dOH9Fwe6+/9raBfO85RT49XTOgd8vUl6atCeKcOLC1a8On1XqlpeeSlqbHCWnwNNvfNHSroS7UtQXae/qW/v6HqX6hoLJZDy5JHJpXKilBYX/IyaDzjY04JgbuzrZSua3dfZV1DadzSouqayTvUuVaWVZXIiCJS1MjaKCNe7QXr3QcDwuwk9+mcRIf630RVHmzLI9uOul55+Ip1SGHGwszeIjfCMC3SmvqiIOB1tOoOdsRUo+vjBE11wZTUqQtwvH3Fh+mcTISdSjTVwcbfZtf87J3krtNatokC6LD528ahrtsVgdddwsh8Qo/0nL2FlbeLs5ar4vk8Nm6X/21jojQ43EbVFRHFFBHpP+vKKC3JUd5aYdloFetGLzoCIa0gJPPz5/0n+Eyqi4WqHTackLgn/6M0NOmeXx81SrfBqJCfEy0NdTpGTsPO9/Hz4r0EqIBRRMJmNlYhjlJd7Q8OmMomtlNU0tXQM8vhjDTI0MzU3Zbk523m6OgZ6zrTlmk9av+lL2sdjgwylZYwj3jw42nABPZ5Url48ajXwpFB8PjNmscP+52YWVmuiGgvjNncUyoJByZw/31Q8Otnf1SWZ29XK7erm1Da2pmcU4jnu7OcaF+yZF+VPWQKD6JpilhUlEwFzU1WUJoRqKyqY5LC1M/JURdFK0v8b6ohC+7k6U+Yf+SJNShhRisbj8VuO+H0+v+fvuH0+m9w9QOw2f0g7p8gTqicNAj7koWqejl1GSEOlH6du6sraZcoCc5+dqamyo+X4hsTCljuJTXUcRTJOSAR7/x5MZh09lUl5VQhw9MrtpQV6zZ1K5646L8JW1n7v7BmRL6hSo3YuUtIKyaopQQAw6fWGYj2b7JBcTI2ppmpmw1VK/EuI4n10iEj3wA8JxfGkcxZpW1hRtae8prUK6mNUF3JzsKLcKBAJhXvHNrIIKyrumd80iEFKbw8kLgtRSvxLi6Ozh5pVUS2Uunh+ox3zAqvVydZDao8UwLCW9UCyWdQmsQyQiDIjC8ts8/kh2YdUYVf89XOwdbDma7RmaPi61X9u4cN+3N66wmjHVSIbK2RynLl+TyjExYkkNrbLDxqhAeC5L5zywSkKn0+LCfSkvZRZUYhjW0z9YTjWzYNM6eNTUI0OcLokJ/G3fG1/ueH7d8gVB3i5slXbJlFvKllbVN7d2Sf1WlsWHns8ZD8Bmamy4IFQ6LkR6fjl3UJ2O3605ZplHdilSMq/45vYvfp20WIiPqznVPC0QisjBMrOgws/DSbZMYqTfDyfSpmVcLK68MzY2horxQMNxP3cnP3cnDMPEYnFza1fVnbs3qhvKqhvuKXZqqNzIIRaLU9IKpTI9XOzJeSR5QRCTKS24lMsFmG6TGEV9VlJ4o5Y3NEykUTOLNcfM132WBjuHpqt3ID2f2hiSAsdxRzvLRdEBb29c8cueLYd3/339yoWT7oMpvZQ9n10yPCrtoH5ZXCiGYTQcf3yh9IFtTX3LzTu6FZ1KCjZLPxJxLEnMKQTdfQMVNU2UxZKipm3d/u1vF1C7FHJwsOGsXxn7y57Xt25YilryYCqIY3BoOO3KDanM+AhftqFBqJ+braW51CVZM0XXWDDPWzLkD4nknEKQVUC9HxoT6kVZgxbo7OG+9+VRcnhTCgadvjQu5OBHL7s52VEWUGUTTHaaMNDXS4ryXy5zVDvA46dd1UaY1qmAsiiLym9L/dGzCiopbQs2Sz8yiHrs0QJl1Q2v7DxY04A0TuVjPcP0s7fXUU4xqoijpoFipngyOSrUTzrA0fns0hGZOUinsOaY+c6lthgyrklP51293MraZsrCSdO64dFwr2Pzu998euDknaY2FW43N2H/7dklsvkqHrylXC6Qeu5NdlUtFotT0jRiiqrx4C0xyp/yDEh2TiHILKikfJIjxGeOuamR1gIWyzImFp/PLj2fXeo+e2Z4wNxg7znus2fS6Yr++CODPBztLJtaOiUzVTxbUWR1WlxZd7etW7X6tQZqnSI7pxBkFVRQziw0Gi0+gnqnRMtU19079Ef6KzsPJG/8cMvHP3x/Iu1aWQ2PPzLpjaE+0pFZVRw5RgXCc9kla5fIC0t26pKum6IeLvYONtT7m5kycwpBZw+36vZdL1cH2UuJkf7Hzyn63LUWGB4VlFbVE6cWdDrNb65TcmzQwjAf1Gm5m7O0War68xwpaQVrFkegWuro7r9SekvlyrVDEvroeNvmVds2r1KqNlcnW2d76/q77VPul/oRicZKqupKqurS8ys+fP0pyv+a7Amz6kf2Le09ReV3UFdPZxShngPSERh0+sIwee9MqABqktId8opvok5AmQzpkWJKz3Og9jCEIlFqRtFUatYCYf5ucvZ/VAP1RIhO0drZS5nfJxOeckriuHq9pr27XzY/u7BK9uEPXUMTB2Ycc5MAL4Ve2lALSVH+/3hxpbLvfTnNpH6JQfaMd0riGBsbO5MufdSCPQyHKcZsVri/myZq1uaGh74+c9H8gP07Nx3Y9dKTyVEo41qSZfGhlNY0hmEVtdKHA1N9V/ZMZvG6FbFMxsSbSw13O8qqG6ZYraaJDfOWPSBUC/NDPPceOj08MqqJylG4Odu5OdttfiqpubWrvKaptqHldlNbdy93gDfM448wGXSOufHc2TOTovzn+VH/JMbEYlkLcqp/oN7+wYT170+xEmVR/MieYPELu/jDD/y3UEdlLR29T2/dq0id/h7O+7Y/J5tvoK83P8TzYu51RSqZ+heRwsGW42DLwWICFa+TIO3KDe6g9AHeo+iCwc7aAjW0pl0pU7CSsuqGzh4u5SUded9JcYZHBd8duySb/yiKQ45ZcFnmwBmFWCxOz6c+Uwz0ms0xf2he9RMIRe/tO0q5sHgUxZGAeMq8tqG18cHDBfnIPrpAQMNx7Wyld/cNTtG46ezh/s+eIwU3aimvPnLOW3zmzrKzkn7ohOCywnMKQU1DS1NLp6OdpeylpGj/31JzVemfMuQV31y6+ZMgb5eoII8AD2c7qtdEUHT1cs/nlP7635yhYeSxyyMnDtTLKWNisQqPnly+cuO51XGy+c721q5OtrUNrcpWqCyjAuHV0ltXS29hGGZmwvZydXRxsLaztrCzsuCYmxga6LEM9JhMxvDI6BB/dJDHb2zpvN3UVlHTWHazgfKpR0nwmGd2aPoLAA8pj6LNASgIiANAAuIAkIA4ACSMvt6u6e4DoKPAyAEgAXEASEAcABIQB4AExAEgAXEASEAcABIQB4AExAEgAXEASEAcABIQB4AExAEgAXEASEAcABIQB4AExAEgAXEASEAcABJtv/FmbmoUFewdHeIdEehpxGYRmeve+NeNamlHVecOfWRrRf1+3//+eOqH4xckc4zYrL+uTIgN97O34YjGxppbOi/llhw5laZGF7nO9jZ/fvtPqUyBUNjdyy27WXfsbHZxea2cwmKxeHhktK2rt7Tyzm+nM2rqKSJtWVqYrkmOCQtwd7SzMjJkDQ7xm1s780tv/n4mq7OH4kVnTaNtceze9mKQj7Sj4yniYGt58JPXbSwnlOTu4uDu4pAcG7px277uPmpHCWqByWDYWFrYWFokzQ/+9mjq/iNnUCVxHGcZ6Dvb2zjb2yyNC3t91/7cogc8qa9aFPXO5rWSkY1MjdmmxmxvN6d1KxM+++b3P85r/OVbKbQtjp7+gdSMgpyCckNDg/dee0aRW5Y8t6OlHenslk6n7dn+IqGM/NKb23f/yGTSP9+20Weu82xH24/f2rBp+5dq6/19TpzL+fCrX2k47uHq+OlbzzvYWWIYtump5JKK29euS/s9JgobsvRjw/w+fGM9juMMBv3tTWtyiyaGllWLot69/9fIK67c98OfjffaZ820/vuGFVHBXnpMBnFVy/rQts3x1icHt+8+dD67aEDGj4xqJEQGujmPe0z77Jtj3X3cts7evd+fJHLm+bsH+2jE9xeGYWNicWVN457vTpA5y+LDUYWH+COpGQVF96ceRzsrM5Px2I5WM8ze2byWSN+qu/v6B9/UNtwbFQhrG+5t2fXNrbpxN/PvbF5raTHVyFxK8dAbpEnzg4lEb/9g/d1xt/Dlt+qFQhGRToyeiIbHZDBeWLv49HcfFKb8+8z3uzY+uZhOp5079NH11P3XU/d//OYGFTpQfquBTDs72sgv3NHdR6bp9yMsrUmOIWeTH45fkAzrJxAKSetKj8lY+1iMCj1UmYfABcPPu98yMzESikQt7d15xZWH/0yT/BN7uo67qW/tmJh6hEJRV28/Mdd4uY4HRaDh+N4dm6JDxh3T2ttwXnl2qZfrrCkGR5a8e9JYXmTkit7+QdIYCguYCMeRX3pT6pYrxROmSViAx1c//1flrirLQzBycCxMGQy6gb7ebEfbZ1fEn/j6XV/3CV+f5Eg7+KAf+wHeuN9+y/vhHFYuiiKVcfR0RuzTb6159UNHOysbmQBCSuHt5kSmG5qRES0MWfrJsaFB3uPG+He/nyMvOdiOu3/hDQ33y3iKHeDxSVduZEntoLsjx53Gll9S0ovKa5pbOo2NWCuSIl98cgmO4yZGhp9ve2Hpxn+OjAr09Zhk+DupmLfkR0MDfSLxxJL5RKKlvfvzb4+PicW9/YMffX30+0+3qtZDGo67z3F844XVZE7K5auyxVYvjl69OJr82NXTf+C3s8dSs8kcI8PxJT0f4cOJPzxCOFsmS2oH3RXHq+//h0zz+MP7j5yxmmG2IjESwzBrjnl4oGdmftnIqIAMjygVW4Rx3zUq4daIyWC4Os8kcgpv1JBObUoqbguEQlm33/KR+n8THDh6VnapIgudThc+qOPBIb6pMRvDMJa+HuUtrPv6HhxSZ5DNSXkIphWSHImw0C6O4/Eoyd0hcktt/OP9H1lndz+GYWxDA9IreR93wvW2WCxWIYAeiUAobO/qvZhT/MI/vvj6yGnKMifO5QQ+9vKKzTsrahowDDM3NXrvtWfiIiYcoTa3jnupYxsaECqRxJjNIn20kyW1g+6OHPIhQzJU1TZZc8wxDLOT2E5lMOiks8fK2kYMw3hDw2NiMaEPE4nYETiOy4aSmBRi60KJ3orF9c1tb3588L8HdxILk3+8tDa3qILYwM0vrSYNl7AAjwvZD8QUCA/0JNOy5qpGeZhGjvmhE6GvaxvH492Rf0ozE6PZ94cTP/fZ5LRyMacYwzCBUHirbjw8W6DXREiiQK85ys4pKtPW2XPqYh6RtrQwXXp/U+RYataoYHz5un51AkPCVziDQd/wRCKRHhUIJS0VLaCj4lj7WMzeHZsWx4Q4O9iwDPStOeYv/eWxZQnjf836u23kb+hSXklN/f1tok1rZpiZWHPMtzy/ksi5dr26qLyGSJ84m0MkiJ1HU2O2q9PMbS8/qb1vhWGHT6WR5s6zK+KIkayju2/3wfGdNA8Xx307Ns+ZZafHZLjMsv1ix2YPl/G1+u6DxyXX8FpA29PKZ+88T25bkfy85+3xxMnLe7//A8MwAz29heH+C8P9ZWto7ejZsusbco9LJBp746MDBz/ZYmNpPs/fPe2Xz8iSdU2t23cfIj/+eSFvQZgfsZrdsDpxw+pEDMMy88uMDFnEalYLAcebWzoz88uI7+VoZ7UgzC/96nUMw46lZmEY9ubG1XpMRlSId1TIA1GCBELh7oMntDxsYDprc/x2JrP+btuCMD8v11mWFqamxmwef7iuqTUjv+z42eyhB8PZNbd2rn5l1/pVCbFh/jNtZojF4qaWzku5xUdOpUs6+B0Ti7d++O361QnLEiKsOWYd3X0pl64eOn4x9/i4J/xBnjbWAj/9cYkU/V9XJRDiwDDsWGpWZn7ZmuSY8AAPe1sOcSp7t7Ur//rNY6nZ7V3UEXQ0Cu63ZLP2W9Udgn3cvvt0C5F+/8vDpy7qUAS/aUdHRw4N8fGbG243tuQWVTS3drEM9IK8XcktrK6e/ks5JdPbPV3j0RKHnfWMJbGhf1u/XCq/q5f7t51f8/iqRIT/f8yjNa3YWJovT4iIDvGxt+WwWQYDPH5dU2t2Yfkf53O1Y3A8XDxa4gCUQkf3OQBdAMQBIAFxAEhAHAASEAeABMQBIAFxAEhAHAASEAeABMQBIAFxAEhAHAASEAeABMQBIAFxAEhAHAASEAeABMQBIAFxAEhAHAASEAeABMQBIPk/G4hB2E1BYqUAAAAASUVORK5CYII=">
+<style>
+  :root{
+    --paper:#fff;--ink:#1e293b;--muted:#64748b;--faint:#94a3b8;--line:#e6ebf1;
+    --accent:#3f5b7c;--deep:#2f4a68;--tint:#eef2f7;--badge:#e7eef5;--done:#16a34a;
+    --carb:#b45309;--carbbg:#fdf3e3;--port:#0e7490;--portbg:#e8f6f9;
+    --her:#8b5a83;--herbg:#f7eef6;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#eef1f5;line-height:1.45;padding-bottom:44px;}
+  header{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff;padding:calc(env(safe-area-inset-top) + 10px) 14px 0;box-shadow:0 2px 10px rgba(0,0,0,.12);}
+  .htop{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  h1{font-size:16px;margin:0;font-weight:800;}
+  .hbtns{display:flex;gap:6px;}
+  .hbtn{background:rgba(255,255,255,.14);color:#fff;border:none;border-radius:8px;font-size:11.5px;font-weight:700;padding:6px 10px;cursor:pointer;}
+  .prog{margin-top:8px;}
+  .progbar{height:6px;background:rgba(255,255,255,.18);border-radius:20px;overflow:hidden;}
+  .progfill{height:100%;background:#7fd39b;width:0;transition:width .3s;}
+  .progtxt{font-size:11px;color:#cdd9e6;margin-top:4px;display:flex;justify-content:space-between;}
+  .tabs{display:flex;margin-top:10px;}
+  .tab{flex:1;text-align:center;font-size:13px;font-weight:800;color:#9fb3c8;padding:10px 0 11px;border-bottom:3px solid transparent;cursor:pointer;}
+  .tab.on{color:#fff;border-bottom-color:#7fd39b;}
+  .wrap{max-width:660px;margin:0 auto;padding:12px 12px 0;}
+  .legend{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:12px;color:var(--muted);margin-bottom:6px;}
+  .legend b{color:var(--deep);}
+  .legend.her b{color:var(--her);}
+
+  .wkhead{display:flex;align-items:baseline;border-left:4px solid var(--accent);padding:2px 0 4px 10px;margin:16px 0 8px;}
+  .her .wkhead{border-left-color:var(--her);}
+  .wkno{font-size:13.5px;font-weight:800;margin-right:9px;}
+  .wkdates{font-size:11.5px;font-weight:600;}
+  .wkmenu{margin-left:auto;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);}
+  .her .wkmenu{color:var(--her);}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:11px;margin-bottom:8px;overflow:hidden;}
+  .crow{display:flex;align-items:center;padding:11px 12px;cursor:pointer;gap:11px;}
+  .cbox{width:25px;height:25px;min-width:25px;border:2px solid var(--faint);border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .cbox svg{width:14px;height:14px;opacity:0;}
+  .cmeta{flex:1;min-width:0;}
+  .cdate{font-size:11px;color:var(--muted);}
+  .ctitle{font-size:14px;font-weight:700;margin-top:1px;}
+  .csub{font-size:11px;color:var(--muted);margin-top:1px;}
+  .tag{font-size:9.5px;font-weight:800;border-radius:20px;padding:3px 9px;white-space:nowrap;background:var(--badge);color:var(--deep);}
+  .tag.carb{background:var(--carbbg);color:var(--carb);}
+  .tag.long{background:var(--deep);color:#fff;}
+  .tag.port{background:var(--portbg);color:var(--port);}
+  .tag.race{background:#7f1d1d;color:#fff;}
+  .tag.her{background:var(--herbg);color:var(--her);}
+  .chev{color:var(--faint);font-size:13px;transition:transform .2s;}
+  .card.open .chev{transform:rotate(90deg);}
+  .body{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 12px;}
+  .card.open .body{max-height:3000px;padding-bottom:12px;}
+  .meal{border-top:1px dashed var(--line);padding:8px 0 2px;}
+  .mname{font-size:12px;font-weight:800;color:var(--deep);text-transform:uppercase;letter-spacing:.04em;}
+  .her .mname{color:var(--her);}
+  .mitem{font-size:12.5px;color:#475569;margin:3px 0 3px 2px;}
+  .mac{font-size:10.5px;color:var(--faint);font-variant-numeric:tabular-nums;}
+  .total{border-top:2px solid var(--line);margin-top:9px;padding-top:8px;font-size:12px;font-weight:800;color:var(--deep);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;}
+  .her .total{color:var(--her);}
+  .total span.t2{font-weight:600;color:var(--muted);}
+  .gnote{font-size:12px;color:#475569;margin:6px 0;}
+  .card.today{box-shadow:0 0 0 2px var(--accent);}
+  .her .card.today{box-shadow:0 0 0 2px var(--her);}
+  .todaytag{display:inline-block;font-size:9px;font-weight:800;background:var(--accent);color:#fff;border-radius:5px;padding:2px 6px;margin-left:6px;vertical-align:1px;}
+  .card.done{opacity:.6;}
+  .card.done .ctitle{text-decoration:line-through;color:var(--faint);}
+  .card.done .cbox{background:var(--done);border-color:var(--done);}
+  .card.done .cbox svg{opacity:1;}
+
+  /* shopping */
+  .card.shop{background:#f6f9f6;border-color:#d9e8d9;}
+  .shopgrp{font-size:11px;font-weight:800;color:#3a6b4a;text-transform:uppercase;letter-spacing:.06em;margin:10px 0 3px;}
+  .shopgrp.cost{color:#b45309;}
+  .sitem{display:flex;align-items:flex-start;gap:9px;padding:6px 0;border-bottom:1px solid #e6efe6;font-size:13px;color:#374151;cursor:pointer;}
+  .sitem:last-child{border-bottom:none;}
+  .sbox{width:21px;height:21px;min-width:21px;border:2px solid #9db8a4;border-radius:6px;background:#fff;margin-top:1px;display:flex;align-items:center;justify-content:center;}
+  .sbox svg{width:12px;height:12px;opacity:0;}
+  .sitem .qty{color:#7a8a80;font-size:11.5px;display:block;}
+  .sitem.done{color:#9aa8a0;text-decoration:line-through;}
+  .sitem.done .sbox{background:var(--done);border-color:var(--done);}
+  .sitem.done .sbox svg{opacity:1;}
+  .foot{font-size:11px;color:var(--faint);text-align:center;padding:18px 12px 0;line-height:1.6;}
+  .hidden{display:none;}
+
+  /* ---- Fuel tab (day / drow / fuel system, distinct from .card) ---- */
+  .day{background:var(--paper);border:1px solid var(--line);border-radius:11px;margin-bottom:8px;overflow:hidden;}
+  .day.long{background:var(--tint);border-color:#d9e2ec;}
+  .day.rest{background:#fafbfc;}
+  .day.wake{border-color:var(--accent);border-width:1.5px;}
+  .day.race{background:var(--deep);border-color:var(--deep);}
+  .drow{display:flex;align-items:center;padding:11px 12px;cursor:pointer;gap:11px;}
+  .dmeta{flex:1;min-width:0;}
+  .ddate{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .dsess{font-size:14px;font-weight:700;color:var(--ink);margin-top:1px;}
+  .gel{font-size:10px;font-weight:800;color:var(--deep);background:var(--badge);border-radius:20px;padding:4px 9px;white-space:nowrap;}
+  .day.open .chev{transform:rotate(90deg);}
+  .fuel{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 12px;}
+  .day.open .fuel{max-height:400px;padding-bottom:11px;}
+  .fuel .row{display:flex;gap:8px;font-size:12.5px;color:#475569;margin:3px 0;padding-left:37px;}
+  .fuel .lbl{font-weight:800;color:var(--deep);min-width:48px;}
+  .fuel .note{font-size:12.5px;color:#64748b;font-style:italic;padding-left:37px;margin:2px 0;}
+  .day.today{box-shadow:0 0 0 2px var(--accent);}
+  .day.done .dsess{text-decoration:line-through;color:var(--faint);}
+  .day.done{opacity:.62;}
+  .day.done .cbox{background:var(--done);border-color:var(--done);}
+  .day.done .cbox svg{opacity:1;}
+  .day.done.hide{display:none;}
+  .day.race .ddate{color:#b8c6d6;}
+  .day.race .dsess{color:#fff;}
+  .day.race .fuel .row{color:#dbe6f1;}
+  .day.race .fuel .lbl{color:#fff;}
+  .day.race .gel{background:#fff;color:var(--deep);}
+  .day.race .cbox{border-color:#fff;}
+  .day.race.done .dsess{color:#9fb3c8;}
+  .a2hs{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:4px 0 12px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:10px;}
+  .a2hs b{color:var(--deep);}
+  .a2hs button{margin-left:auto;background:none;border:none;color:var(--faint);font-size:18px;cursor:pointer;padding:0 4px;}
+  .fuellink{font-size:10.5px;color:var(--deep);background:#eef2f7;border:1px dashed #c7d3e0;border-radius:7px;padding:5px 9px;margin:6px 0 0 32px;display:inline-block;}
+</style>
+</head>
+<body>
+<header>
+  <div class="htop">
+    <h1 id="htitle">Berlin Plan</h1>
+    <div class="hbtns">
+      <button class="hbtn" id="todayBtn">Today</button>
+      <button class="hbtn" id="hideBtn">Hide done</button>
+      <button class="hbtn" id="resetBtn">Reset</button>
+    </div>
+  </div>
+  <div class="prog">
+    <div class="progbar"><div class="progfill" id="pf"></div></div>
+    <div class="progtxt"><span id="pt"></span></div>
+  </div>
+  <div class="tabs">
+    <div class="tab on" data-tab="kevin">Kevin</div>
+    <div class="tab" data-tab="claudia">Claudia</div>
+    <div class="tab" data-tab="prep">Prep</div>
+    <div class="tab" data-tab="shopping">Shopping</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="a2hs" id="a2hs">
+    <span>Add to your home screen: tap <b>Share</b>, then <b>Add to Home Screen</b>. Your checkmarks save on this phone.</span>
+    <button id="a2hsClose">&times;</button>
+  </div>
+  <div id="pane-kevin"></div>
+  <div id="pane-claudia" class="her hidden"></div>
+  <div id="pane-prep" class="hidden"></div>
+  <div id="pane-shopping" class="hidden"></div>
+  <p class="foot" id="footnote"></p>
+</div>
+
+<script>
+/* ============ KEVIN meals [cal,p,c,f] ============ */
+const KM={
+ bfRun:{n:"Breakfast (run morning)",it:[["Pre run: half bagel + 1 tbsp honey","204 · 5P 45C 1F"],["Pre run: 1 banana","105 · 27C"],["Post run: Orgain shake, 2 scoops","160 · 21P 20C 4.5F"],["Post run: Chobani Complete","170 · 25P 10C 4F"],["Post run: 8oz chocolate milk","150 · 8P 26C 2.5F"]],m:[789,60,128,12]},
+ bfLong:{n:"Breakfast (wake early, race rehearsal)",it:[["2.5 to 3 hr pre: whole bagel + 1.5 tbsp honey","376 · 10P 81C 1.5F"],["1 banana + oatmeal 40g dry","255 · 6P 54C 3F"],["Coffee. LMNT 15 min before.","0"],["Post run: Orgain + Chobani","330 · 46P 30C 8.5F"],["Post run: 8oz chocolate milk","150 · 8P 26C 2.5F"]],m:[1111,70,191,15.5]},
+ bfRest:{n:"Breakfast",it:[["4 scrambled eggs, 1 tsp butter","325 · 25P 1C 24F"],["2 wheat toast + 1 tbsp jam","215 · 8P 42C 2F"],["Chobani Complete","170 · 25P 10C 4F"]],m:[710,58,53,30]},
+ bfYog:{n:"Breakfast",it:[["Greek yogurt 0%, 1 cup (227g)","130 · 23P 9C 0F"],["Granola 40g + banana + 1 tsp honey","305 · 6P 62C 6F"],["Chobani Complete","170 · 25P 10C 4F"],["1 tbsp peanut butter","95 · 4P 3C 8F"]],m:[700,58,84,18]},
+ lChx:{n:"Lunch: salsa chicken rice bowl (prepped)",it:[["Slow cooker salsa chicken, 200g cooked (7oz)","330 · 61P 1C 7F"],["Jasmine rice, 1.25 cups cooked (197g)","256 · 5P 56C 0F"],["Roasted peppers + onions, 1 tsp oil","70 · 1P 8C 5F"]],m:[656,67,65,12]},
+ lWrap:{n:"Lunch: turkey wrap (no reheat)",it:[["Large tortilla + 5oz deli turkey + provolone","492 · 42P 46C 16F"],["Lettuce, tomato, mustard + 1 apple","110 · 1P 28C 0F"]],m:[602,43,74,16]},
+ lChili:{n:"Lunch: turkey chili (prepped)",it:[["Turkey chili, 2.5 cups (610g)","563 · 56P 44C 15F"],["Rice, 3/4 cup cooked","155 · 3P 33C 0F"]],m:[718,59,77,15]},
+ lTuna:{n:"Lunch: tuna sandwich",it:[["Tuna 2 pouches + 1 tbsp light mayo","185 · 33P 1C 5F"],["3 slices wheat bread + 1 banana","345 · 13P 72C 3F"]],m:[530,46,73,8]},
+ lCarb:{n:"Lunch: carb load bowl",it:[["Salsa chicken 150g (5.3oz)","245 · 46P 1C 5F"],["Rice, 1.75 cups cooked (276g)","358 · 7P 79C 0F"],["Roasted veg + OJ 1 cup","180 · 3P 35C 5F"]],m:[783,56,115,10]},
+ dChili:{n:"Dinner: slow cooker turkey chili",it:[["Turkey chili, 3 cups (732g)","672 · 67P 53C 18F"],["Rice, 3/4 cup cooked","155 · 3P 33C 0F"]],m:[827,70,86,18]},
+ dStir:{n:"Dinner: beef stir fry",it:[["Flank steak, 200g cooked (7oz)","353 · 54P 0C 14F"],["Stir fry veg 2 cups + sauce","120 · 3P 20C 1F"],["Rice, 1 cup cooked","205 · 4P 45C 0F"]],m:[678,61,65,15]},
+ dSalmon:{n:"Dinner: salmon and rice",it:[["Baked salmon, 200g (7oz)","412 · 45P 0C 26F"],["Rice, 1 cup cooked","205 · 4P 45C 0F"],["Asparagus or broccoli","30 · 3P 5C 0F"]],m:[647,52,50,26]},
+ dTaco:{n:"Dinner: shrimp tacos",it:[["Shrimp 200g (7oz), chili lime","198 · 42P 0C 2F"],["3 corn tortillas + slaw + half avocado","310 · 5P 38C 15F"],["Rice, 3/4 cup","155 · 3P 33C 0F"]],m:[663,50,71,17]},
+ dPork:{n:"Dinner: pork tenderloin",it:[["Roast pork tenderloin, 200g (7oz)","294 · 52P 0C 8F"],["Roasted sweet potato 250g + 2 tsp oil","295 · 4P 50C 9F"],["Green beans","35 · 2P 7C 0F"]],m:[624,58,57,17]},
+ dBurger:{n:"Dinner: turkey burgers + oven fries",it:[["6oz turkey patty + bun + cheese slice","624 · 52P 35C 25F"],["Oven fries, 200g potato","220 · 4P 40C 5F"]],m:[844,56,75,30]},
+ dPasta:{n:"Dinner: pasta night (carb load)",it:[["Spaghetti 160g dry + marinara 3/4 cup","641 · 22P 127C 4.5F"],["Turkey meatballs, 140g (5oz) + parm","307 · 37P 4C 15.5F"]],m:[948,59,131,20]},
+ dSheetT:{n:"Dinner: sheet pan turkey sausage",it:[["Turkey sausage, 2.5 links","350 · 33P 10C 20F"],["Potatoes 250g + peppers + onion + oil","300 · 5P 52C 9F"]],m:[650,38,62,29]},
+ sOpt:{n:"Snack — optional, pick one only if hungry",it:[["Banana","105 · 1P 27C 0F"],["— or — Oikos Triple Zero yogurt cup","90 · 15P 7C 0F"],["— or — Almonds, 28g (small handful)","164 · 6P 6C 14F"]],m:[0,0,0,0]},
+};
+const KSETS={
+ EASY:["bfRun","lChx","dX","sOpt"],
+ QUAL:["bfRun","lChx","dX","sOpt"],
+ STR:["bfRest","lWrap","dX","sOpt"],
+ REST:["bfYog","lWrap","dX","sOpt"],
+ CARB:["bfYog","lCarb","dPasta","sOpt"],
+ LONG:["bfLong","lChili","dX","sOpt"],
+};
+const KTARGET={EASY:"meals ~2,000 to 2,200 · add snack for 2,300+",QUAL:"meals ~2,000 to 2,200 · add snack for 2,300+",STR:"meals ~2,000 · add snack for 2,200+",REST:"meals ~2,000 · add snack for 2,200+",CARB:"meals ~2,400+, carbs 300g+",LONG:"meals ~2,500+ before gels, gels push you to ~2,900",PORT:"eat out, protein first",BER:"carb focus, familiar",RACE:"race day"};
+
+/* ============ CLAUDIA meals ============ */
+const CM={
+ cBf:{n:"Breakfast",it:[["Coffee (black or splash of milk)","10"],["Greek yogurt 0%, 1 cup (227g)","130 · 23P 9C 0F"],["Berries, 3/4 cup + chia 1 tbsp","100 · 2P 15C 3F · 6g fiber"],["1 hard boiled egg","70 · 6P 1C 5F"]],m:[310,31,25,8]},
+ cL1:{n:"Lunch: tuna spinach power bowl",it:[["Baby spinach, 3 cups + cherry tomatoes","30 · 3P 5C 0F · iron"],["Tuna, 2.5 pouches (6.25oz)","175 · 41P 0C 1F"],["Lentils, 3/4 cup canned, rinsed","173 · 14P 30C 0F · 12g fiber, iron"],["Olive oil vinaigrette, 1 tbsp","90 · 0P 1C 10F"]],m:[468,58,36,11]},
+ cL2:{n:"Lunch: turkey wrap, high fiber",it:[["Carb Balance tortilla","70 · 5P 19C 3F · 15g fiber"],["Deli turkey 5oz + provolone slice","250 · 36P 2C 10F"],["Spinach + mustard + baby carrots on the side","50 · 2P 10C 0F"]],m:[370,43,31,13]},
+ cSnkOpt:{n:"Snack — optional, pick one only if hungry",it:[["Cottage cheese, 3/4 cup","100 · 12P 4C 2F"],["— or — String cheese + a few almonds","140 · 10P 3C 11F"],["— or — An apple","95 · 0P 25C 0F · 4g fiber"]],m:[0,0,0,0]},
+ /* dinner variants keyed to Kevin's dinner */
+ dChili:{n:"Dinner: turkey chili (her bowl)",it:[["Turkey chili, 2 cups (487g)","453 · 45P 35C 12F · 13g fiber, iron"],["No rice, extra spinach folded in","15 · 1P 2C 0F"]],m:[468,46,37,12]},
+ dStir:{n:"Dinner: beef stir fry (her plate)",it:[["Flank steak, 170g cooked (6oz)","303 · 46P 0C 12F · iron"],["Double stir fry vegetables","120 · 4P 20C 1F"],["Rice, 1/3 cup cooked","70 · 1P 15C 0F"]],m:[493,51,35,13]},
+ dSalmon:{n:"Dinner: salmon (her plate)",it:[["Baked salmon, 170g (6oz)","352 · 39P 0C 22F"],["Double asparagus or broccoli","60 · 5P 10C 0F · fiber"],["No rice, squeeze of lemon","0"]],m:[412,44,10,22]},
+ dTaco:{n:"Dinner: shrimp taco bowl (no shells)",it:[["Shrimp, 170g (6oz)","170 · 36P 0C 2F"],["Slaw + half avocado + salsa","160 · 3P 12C 12F · fiber"]],m:[330,39,12,14]},
+ dPork:{n:"Dinner: pork tenderloin (her plate)",it:[["Pork tenderloin, 170g (6oz)","255 · 45P 0C 7F · iron"],["Small sweet potato, 120g","105 · 2P 24C 0F · fiber"],["Green beans, double portion","50 · 3P 10C 0F"]],m:[410,50,34,7]},
+ dBurger:{n:"Dinner: turkey burger, lettuce wrapped",it:[["6oz turkey patty + cheese, lettuce wrap","444 · 46P 2C 26F · iron"],["Side salad + vinaigrette","110 · 1P 6C 9F"]],m:[554,47,8,35]},
+ dPasta:{n:"Dinner: meatballs, light pasta (her plate)",it:[["Turkey meatballs, 140g (5oz) + marinara","347 · 36P 12C 14F · iron"],["Spaghetti, 60g dry (small portion)","213 · 8P 43C 1F"],["Side salad","60 · 1P 5C 4F"]],m:[620,45,60,19]},
+ dSheetT:{n:"Dinner: sheet pan turkey sausage (her plate)",it:[["Turkey sausage, 2 links","280 · 27P 8C 16F"],["Extra peppers + onions, skip most potato","110 · 3P 18C 3F · fiber"]],m:[390,30,26,19]},
+};
+const CSET=["cBf","cLX","dX","cSnkOpt"]; /* lunch alternates, dinner mirrors Kevin, one optional snack */
+const CTARGET="meals ~1,250 to 1,450 · 120g+ protein · fiber 25g+ · add snack on hungrier days";
+
+/* ============ menus: Sun..Sat dinners (no chicken dinners) ============ */
+const MENUS={
+ A:{din:["dStir","dChili","dSalmon","dSheetT","dPork","dPasta","dBurger"],klun:{Mon:"lChili",Tue:"lChx",Wed:"lChili",Thu:"lWrap"}},
+ B:{din:["dSalmon","dStir","dChili","dPork","dBurger","dPasta","dTaco"],klun:{Mon:"lChx",Tue:"lWrap",Wed:"lChx",Thu:"lTuna"}},
+ C:{din:["dChili","dPork","dSalmon","dStir","dSheetT","dPasta","dBurger"],klun:{Mon:"lChx",Tue:"lChili",Wed:"lWrap",Thu:"lChili"}},
+ D:{din:["dSheetT","dSalmon","dStir","dChili","dPork","dPasta","dTaco"],klun:{Mon:"lChx",Tue:"lWrap",Wed:"lChx",Thu:"lTuna"}},
+};
+
+/* ============ simplified shopping (per menu) ============ */
+const SHOP={
+ A:{sr:[["Bagels","6 pack"],["Deli turkey + provolone","half lb + 1 pack"],["Turkey sausage links","4"],["Pork tenderloin","1.5 lb"],["Spaghetti + marinara","1 lb + 1 jar"],["High fiber tortillas (Carb Balance)","1 pack"],["Berries","2 pints"],["Spinach, baby","1 large box"],["Broccoli + asparagus","2 crowns + 1 bunch"],["Sweet potatoes + potatoes","4 + 3 lb bag"],["Cottage cheese","1 tub"],["Lentils, canned","2 cans"],["Kidney beans + crushed tomatoes","2 cans + 28oz"],["Buns + lettuce for burgers","4 pack + 1 head"],["Apples + baby carrots","4 + 1 bag"]],
+   co:[["Chicken breast (Kevin lunches)","3 lb"],["Ground turkey 93/7, organic","3 lb"],["Flank steak","1.25 lb"],["Salmon","2 lb"],["Bananas","2 bunches"],["Greek yogurt 0%, Kirkland","1 twin pack"],["Chobani Complete","2 four packs"],["Oikos Triple Zero","1 box"],["Eggs","18 or 24"],["Almonds, string cheese, Chomps, pretzels","if low"],["Orgain + Fairlife Core Power","if low"]]},
+ B:{sr:[["Bagels","6 pack"],["Deli turkey + provolone","half lb"],["Tuna pouches","4"],["Pork tenderloin","1.5 lb"],["Shrimp","1 lb, frozen fine"],["Corn tortillas","12"],["Spaghetti + marinara","check stock"],["High fiber tortillas","check"],["Berries","2 pints"],["Spinach","1 box"],["Slaw mix + 2 avocados + limes","1 bag"],["Stir fry veg + green beans","1 bag + 1 lb"],["Cottage cheese + lentils","check"],["Buns + lettuce","4 + 1 head"],["Apples + carrots","4 + check"]],
+   co:[["Chicken breast (Kevin lunches)","2.5 lb"],["Ground turkey","2 lb (chili + meatballs)"],["Flank steak","1.25 lb"],["Salmon","2 lb"],["Bananas","2 bunches"],["Yogurt, shakes, eggs","check levels"]]},
+ C:{sr:[["Bagels","6 pack"],["Deli turkey + provolone","half lb"],["Pork tenderloin","1.5 lb"],["Turkey sausage","4 links"],["Spaghetti + marinara","1 each"],["High fiber tortillas","check"],["Berries","2 pints"],["Spinach","1 box"],["Sweet potatoes + potatoes","4 + 3 lb"],["Green beans + broccoli","1 lb + 2 crowns"],["Cottage cheese + lentils","1 tub + 2 cans"],["Kidney beans + crushed tomatoes","2 + 1"],["Buns + lettuce","4 + 1"],["Apples + carrots","4 + 1 bag"]],
+   co:[["Chicken breast","3 lb"],["Ground turkey","3 lb"],["Flank steak","1.25 lb"],["Salmon","2 lb"],["Bananas","2 bunches"],["Restock: yogurt, shakes, snacks","as needed"]]},
+ D:{sr:[["Bagels","6 pack"],["Deli turkey + provolone","half lb"],["Tuna pouches","4"],["Turkey sausage","4 links"],["Pork tenderloin","1.5 lb"],["Shrimp","1 lb"],["Corn tortillas","12"],["Spaghetti + marinara","check"],["High fiber tortillas","check"],["Berries + spinach","2 pints + 1 box"],["Slaw + avocados + limes","1 bag + 2 + 2"],["Stir fry veg","1 bag"],["Cottage cheese + lentils","check"],["Apples + carrots","check"]],
+   co:[["Chicken breast","2.5 lb"],["Ground turkey","2 lb"],["Flank steak","1.25 lb"],["Salmon","2 lb"],["Bananas","2 bunches"],["Restock as needed","yogurt, shakes, snacks"]]},
+};
+const PREP={
+ A:["Slow cook salsa chicken 3 lb (Kevin lunches + freeze extra)","Slow cook turkey chili 2 lb batch (both of you, all week)","Cook rice 3 cups dry (Kevin)","Hard boil 8 eggs. Wash and portion spinach, berries, veg","Form 2 turkey patties for Saturday"],
+ B:["Slow cook salsa chicken 2.5 lb (Kevin lunches)","Turkey chili batch (shared)","Cook rice 3 cups dry (Kevin)","Boil eggs, wash veg, thaw shrimp Friday night"],
+ C:["Slow cook salsa chicken 3 lb (Kevin)","Turkey chili batch Sunday (shared)","Rice 3 cups dry (Kevin), boil eggs, chop veg"],
+ D:["Slow cook salsa chicken 2.5 lb (Kevin)","Chili batch (shared)","Rice (Kevin), eggs, wash veg, thaw shrimp Friday"],
+};
+
+const PORT_GUIDE=[["Breakfast","Kevin: bread roll, ham and cheese, yogurt, banana, galão. Claudia: yogurt or skyr, fruit, coffee, skip the pastry basket most days."],["Lunch","Both: grilled fish or bifana with salad. Claudia: protein + salad, light on rice and bread. Kevin: add the rice."],["Dinner","Grilled fish or meat for both. Claudia: vegetables over potatoes. Kevin: normal plate. Wine and pastel de nata in moderation, it is a wedding trip."],["Snacks","Market run: skyr or yogurt drinks, fruit, nuts, water. Anchor every meal with protein."]];
+const BER_GUIDE=[["Breakfast","Hotel: rolls with honey (Kevin), yogurt and fruit (Claudia), coffee."],["Lunch","Familiar and light: pasta or rice for Kevin, protein and salad for Claudia."],["Dinner","Thu and Fri: Kevin carb loads, big pasta. Claudia: normal protein-first plate."],["Snacks","Market: pretzels, bananas, juice (Kevin), yogurt drinks and fruit (Claudia)."]];
+
+/* ============ weeks ============ */
+const WEEKS=[
+ {label:"Week 1",dates:"Jul 12 to 18",menu:"A",days:[
+  ["2026-07-12","Sun Jul 12","5mi Easy + Yoga","EASY",0],["2026-07-13","Mon Jul 13","Lower Body Strength","STR",1],["2026-07-14","Tue Jul 14","Mile Repeats, 6mi","QUAL",2],["2026-07-15","Wed Jul 15","3.75mi Easy","EASY",3],["2026-07-16","Thu Jul 16","Over and Unders, 5.5mi + Full Body","QUAL",4],["2026-07-17","Fri Jul 17","Stretch day","CARB",5],["2026-07-18","Sat Jul 18","13.1mi Half (4 gels)","LONG",6]]},
+ {label:"Week 2",dates:"Jul 19 to 25",menu:"B",days:[
+  ["2026-07-19","Sun Jul 19","5.5mi Easy + Yoga","EASY",0],["2026-07-20","Mon Jul 20","O/U Miles, 5mi + Full Body","QUAL",1],["2026-07-21","Tue Jul 21","4mi Easy","EASY",2],["2026-07-22","Wed Jul 22","1km Repeats, 6.5mi","QUAL",3],["2026-07-23","Thu Jul 23","Legs and Core","STR",4],["2026-07-24","Fri Jul 24","5mi Easy + Stretch","CARB",5],["2026-07-25","Sat Jul 25","15mi Race Practice (5 gels)","LONG",6]]},
+ {label:"Week 3",dates:"Jul 26 to Aug 1 · Portugal",menu:"PORT",days:[
+  ["2026-07-26","Sun Jul 26","Yoga","PORT",0],["2026-07-27","Mon Jul 27","4.5mi Easy + Full Body","PORT",1],["2026-07-28","Tue Jul 28","Rest","PORT",2],["2026-07-29","Wed Jul 29","5mi Easy","PORT",3],["2026-07-30","Thu Jul 30","3.75mi Easy + Legs and Core","PORT",4],["2026-07-31","Fri Jul 31","Stretch · WEDDING","PORT",5],["2026-08-01","Sat Aug 1","7mi Long Run (no gels)","PORT",6]]},
+ {label:"Week 4",dates:"Aug 2 to 8 · Portugal",menu:"PORT",days:[
+  ["2026-08-02","Sun Aug 2","Yoga","PORT",0],["2026-08-03","Mon Aug 3","3.25mi Easy + Legs and Core","PORT",1],["2026-08-04","Tue Aug 4","Rest","PORT",2],["2026-08-05","Wed Aug 5","4mi Easy","PORT",3],["2026-08-06","Thu Aug 6","3.25mi Easy + Full Body","PORT",4],["2026-08-07","Fri Aug 7","Stretch","PORT",5],["2026-08-08","Sat Aug 8","7mi Long Run (no gels)","PORT",6]]},
+ {label:"Week 5",dates:"Aug 9 to 15",menu:"C",days:[
+  ["2026-08-09","Sun Aug 9","Yoga · fly home","REST",0],["2026-08-10","Mon Aug 10","Legs and Core","STR",1],["2026-08-11","Tue Aug 11","5.5mi Easy","EASY",2],["2026-08-12","Wed Aug 12","800m Repeats, 6mi","QUAL",3],["2026-08-13","Thu Aug 13","3.25mi Easy + Full Body","EASY",4],["2026-08-14","Fri Aug 14","Stretch day","CARB",5],["2026-08-15","Sat Aug 15","15mi Race Practice (5 gels)","LONG",6]]},
+ {label:"Week 6",dates:"Aug 16 to 22",menu:"D",days:[
+  ["2026-08-16","Sun Aug 16","Tempo 2 to 1, 5mi + Yoga","QUAL",0],["2026-08-17","Mon Aug 17","Lower Body Endurance","STR",1],["2026-08-18","Tue Aug 18","Mile Up and Overs, 6mi","QUAL",2],["2026-08-19","Wed Aug 19","4.5mi Easy","EASY",3],["2026-08-20","Thu Aug 20","Progression Run, 4mi + Full Body","QUAL",4],["2026-08-21","Fri Aug 21","Stretch day","CARB",5],["2026-08-22","Sat Aug 22","17mi Long Run (6 gels)","LONG",6]]},
+ {label:"Week 7",dates:"Aug 23 to 29",menu:"A",days:[
+  ["2026-08-23","Sun Aug 23","6mi Easy + Yoga","EASY",0],["2026-08-24","Mon Aug 24","Legs and Core","STR",1],["2026-08-25","Tue Aug 25","Descending Intervals, 6.5mi","QUAL",2],["2026-08-26","Wed Aug 26","3.25mi Easy","EASY",3],["2026-08-27","Thu Aug 27","Tempo 3 Miles, 4.5mi + Full Body","QUAL",4],["2026-08-28","Fri Aug 28","Stretch day","CARB",5],["2026-08-29","Sat Aug 29","19mi Race Practice ★ wake early (7 gels)","LONG",6]]},
+ {label:"Week 8",dates:"Aug 30 to Sep 5",menu:"B",days:[
+  ["2026-08-30","Sun Aug 30","5.5mi Easy + Yoga","EASY",0],["2026-08-31","Mon Aug 31","5mi Easy + Lower Body","EASY",1],["2026-09-01","Tue Sep 1","Tempo 2 Miles, 5.5mi","QUAL",2],["2026-09-02","Wed Sep 2","Rest","REST",3],["2026-09-03","Thu Sep 3","400m Repeats, 4.5mi + Full Body","QUAL",4],["2026-09-04","Fri Sep 4","4mi Easy + Stretch","CARB",5],["2026-09-05","Sat Sep 5","22mi PEAK ★ wake early (9 gels)","LONG",6]]},
+ {label:"Week 9",dates:"Sep 6 to 12",menu:"C",days:[
+  ["2026-09-06","Sun Sep 6","Yoga","REST",0],["2026-09-07","Mon Sep 7","Lower Body Endurance","STR",1],["2026-09-08","Tue Sep 8","Steady into Tempo, 5mi","QUAL",2],["2026-09-09","Wed Sep 9","4mi Easy","EASY",3],["2026-09-10","Thu Sep 10","Broken Miles, 4.5mi + Full Body","QUAL",4],["2026-09-11","Fri Sep 11","Stretch day","CARB",5],["2026-09-12","Sat Sep 12","15mi Race Practice (5 gels)","LONG",6]]},
+ {label:"Week 10",dates:"Sep 13 to 19 · Taper",menu:"D",days:[
+  ["2026-09-13","Sun Sep 13","5mi Easy + Yoga","EASY",0],["2026-09-14","Mon Sep 14","4.5mi Easy + Full Body","EASY",1],["2026-09-15","Tue Sep 15","Progressive Mile Repeats, 5mi","QUAL",2],["2026-09-16","Wed Sep 16","Rest","REST",3],["2026-09-17","Thu Sep 17","Tempo 2.5mi + Legs and Core","QUAL",4],["2026-09-18","Fri Sep 18","Stretch day","CARB",5],["2026-09-19","Sat Sep 19","9mi Long Run (2 gels)","LONG",6]]},
+ {label:"Race Week",dates:"Sep 20 to 27 · Berlin",menu:"RACE",days:[
+  ["2026-09-20","Sun Sep 20","Yoga","REST",0],["2026-09-21","Mon Sep 21","Ticking Over, Full Body","STR",1],["2026-09-22","Tue Sep 22","Taper Fartlek, 5mi","QUAL",2],["2026-09-23","Wed Sep 23","Rest · FLY TO BERLIN","BER",3],["2026-09-24","Thu Sep 24","3.75mi Easy shakeout","BER",4],["2026-09-25","Fri Sep 25","Stretch · CARB LOAD","BER",5],["2026-09-26","Sat Sep 26","Rest · CARB LOAD","BER",6],["2026-09-27","Sun Sep 27","BMW BERLIN MARATHON, 26.2mi","RACE",0]]},
+];
+
+/* ============ FUEL TAB: your existing gel/timing plan, preserved as-is ============ */
+const FE={b:"Half bagel with honey, or a banana. Nothing heavy.",d:"Water. LMNT if hot.",a:"Meal with protein. Chobani is an easy grab."};
+const FES={b:"Half bagel with honey, or a banana.",d:"Water. LMNT if hot.",a:"Chobani, or 2 scoops Orgain / 1 Core Power, then a meal."};
+const FQ={b:"Bagel with honey or jam + a banana, 15 to 20 min before. Coffee.",d:"Water. LMNT if hot. No gels.",a:"Chobani + a banana, or 2 scoops Orgain / 1 Core Power."};
+const FST={b:"Carbs + protein beforehand. Chobani + banana works.",a:"Chobani, or 2 scoops Orgain / 1 Core Power within the hour."};
+const FMOB={note:"Recovery day. Eat normally, hit 150g protein."};
+const FRST={note:"Rest day. Eat normally, hit 150g protein."};
+
+const FUEL_WEEKS=[
+ {n:"Week 8",dates:"Jul 12",phase:"Build",days:[
+   {id:"2026-07-12",l:"Sun Jul 12",s:"5mi Easy + Yoga",f:FE},
+ ]},
+ {n:"Week 9",dates:"Jul 13 to 19",phase:"Build",days:[
+   {id:"2026-07-13",l:"Mon Jul 13",s:"Lower Body Strength",cls:"cross",f:FST},
+   {id:"2026-07-14",l:"Tue Jul 14",s:"Mile Repeats, 6mi",f:FQ},
+   {id:"2026-07-15",l:"Wed Jul 15",s:"3.75mi Easy",f:FE},
+   {id:"2026-07-16",l:"Thu Jul 16",s:"Over and Unders 1km, 5.5mi + Full Body",f:FQ},
+   {id:"2026-07-17",l:"Fri Jul 17",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-07-18",l:"Sat Jul 18",s:"13.1mi Half Marathon",cls:"long",g:"4 Maurten",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking. First gel at 30 min.",d:"4 Maurten regular gels, every 35 min from 30 min. Water + LMNT.",a:"Chobani + the other half bagel or a banana, then a full meal."}},
+   {id:"2026-07-19",l:"Sun Jul 19",s:"5.5mi Easy + Yoga",f:FE},
+ ]},
+ {n:"Week 10",dates:"Jul 20 to 26",phase:"Build · Portugal",days:[
+   {id:"2026-07-20",l:"Mon Jul 20",s:"Over and Unders Miles, 5mi + Full Body",f:FQ},
+   {id:"2026-07-21",l:"Tue Jul 21",s:"4mi Easy",f:FE},
+   {id:"2026-07-22",l:"Wed Jul 22",s:"1km Repeats, 6.5mi",f:FQ},
+   {id:"2026-07-23",l:"Thu Jul 23",s:"Legs and Core",cls:"cross",f:FST},
+   {id:"2026-07-24",l:"Fri Jul 24",s:"5mi Easy + Stretch",f:FE},
+   {id:"2026-07-25",l:"Sat Jul 25",s:"15mi Race Practice",cls:"long",g:"5 Maurten · 4+1 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"5 gels, one every 30 min: 4 regular then 1 caffeine in the back third. Water + LMNT.",a:"Chobani + a bagel, then a big meal."}},
+   {id:"2026-07-26",l:"Sun Jul 26",s:"Yoga",cls:"cross",f:FMOB},
+ ]},
+ {n:"Week 11",dates:"Jul 27 to Aug 2",phase:"Portugal · reduced",days:[
+   {id:"2026-07-27",l:"Mon Jul 27",s:"4.5mi Easy + Full Body",f:FES},
+   {id:"2026-07-28",l:"Tue Jul 28",s:"Rest",cls:"rest",f:FRST},
+   {id:"2026-07-29",l:"Wed Jul 29",s:"5mi Easy",f:FE},
+   {id:"2026-07-30",l:"Thu Jul 30",s:"3.75mi Easy + Legs and Core",f:FES},
+   {id:"2026-07-31",l:"Fri Jul 31",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-08-01",l:"Sat Aug 1",s:"7mi Long Run",cls:"long",g:"no gels",f:{b:"Bagel with honey, or a banana. LMNT on waking.",d:"Water + LMNT. No gels (under 8 mi).",a:"Chobani + carbs, or a meal with protein."}},
+   {id:"2026-08-02",l:"Sun Aug 2",s:"Yoga",cls:"cross",f:FMOB},
+ ]},
+ {n:"Week 12",dates:"Aug 3 to 9",phase:"Portugal · reduced",days:[
+   {id:"2026-08-03",l:"Mon Aug 3",s:"3.25mi Easy + Legs and Core",f:FES},
+   {id:"2026-08-04",l:"Tue Aug 4",s:"Rest",cls:"rest",f:FRST},
+   {id:"2026-08-05",l:"Wed Aug 5",s:"4mi Easy",f:FE},
+   {id:"2026-08-06",l:"Thu Aug 6",s:"3.25mi Easy + Full Body",f:FES},
+   {id:"2026-08-07",l:"Fri Aug 7",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-08-08",l:"Sat Aug 8",s:"7mi Long Run",cls:"long",g:"no gels",f:{b:"Bagel with honey, or a banana. LMNT on waking.",d:"Water + LMNT. No gels (under 8 mi).",a:"Chobani + carbs, or a meal with protein."}},
+   {id:"2026-08-09",l:"Sun Aug 9",s:"Yoga",cls:"cross",f:FMOB},
+ ]},
+ {n:"Week 13",dates:"Aug 10 to 16",phase:"Peak",days:[
+   {id:"2026-08-10",l:"Mon Aug 10",s:"Legs and Core",cls:"cross",f:FST},
+   {id:"2026-08-11",l:"Tue Aug 11",s:"5.5mi Easy",f:FE},
+   {id:"2026-08-12",l:"Wed Aug 12",s:"800m Repeats, 6mi",f:FQ},
+   {id:"2026-08-13",l:"Thu Aug 13",s:"3.25mi Easy + Full Body",f:FES},
+   {id:"2026-08-14",l:"Fri Aug 14",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-08-15",l:"Sat Aug 15",s:"15mi Race Practice",cls:"long",g:"5 Maurten · 4+1 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"5 gels, one every 30 min: 4 regular then 1 caffeine in the back third. Water + LMNT.",a:"Chobani + a bagel, then a big meal."}},
+   {id:"2026-08-16",l:"Sun Aug 16",s:"Tempo 2 to 1, 5mi + Yoga",f:FQ},
+ ]},
+ {n:"Week 14",dates:"Aug 17 to 23",phase:"Peak",days:[
+   {id:"2026-08-17",l:"Mon Aug 17",s:"Lower Body Endurance",cls:"cross",f:FST},
+   {id:"2026-08-18",l:"Tue Aug 18",s:"Mile Up and Overs, 6mi",f:FQ},
+   {id:"2026-08-19",l:"Wed Aug 19",s:"4.5mi Easy",f:FE},
+   {id:"2026-08-20",l:"Thu Aug 20",s:"Progression Run, 4mi + Full Body",f:FQ},
+   {id:"2026-08-21",l:"Fri Aug 21",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-08-22",l:"Sat Aug 22",s:"17mi Long Run",cls:"long",g:"6 Maurten · 4+2 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"6 gels, one every 30 min: 4 regular then 2 caffeine from halfway. Aim 60g carbs/hr. Water + LMNT.",a:"Chobani + a bagel now, full meal within the hour."}},
+   {id:"2026-08-23",l:"Sun Aug 23",s:"6mi Easy + Yoga",f:FE},
+ ]},
+ {n:"Week 15",dates:"Aug 24 to 30",phase:"Peak",days:[
+   {id:"2026-08-24",l:"Mon Aug 24",s:"Legs and Core",cls:"cross",f:FST},
+   {id:"2026-08-25",l:"Tue Aug 25",s:"Descending Intervals, 6.5mi",f:FQ},
+   {id:"2026-08-26",l:"Wed Aug 26",s:"3.25mi Easy",f:FE},
+   {id:"2026-08-27",l:"Thu Aug 27",s:"Tempo 3 Miles, 4.5mi + Full Body",f:FQ},
+   {id:"2026-08-28",l:"Fri Aug 28",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-08-29",l:"Sat Aug 29",s:"19mi Race Practice",cls:"long wake",star:1,g:"7 Maurten · 5+2 caf",f:{b:"Wake early. Full breakfast 2.5 to 3 hr before: whole bagel with honey or jam + banana + small bowl of oatmeal + coffee (about 100 to 130g carbs). LMNT 15 min before.",d:"7 gels, one every 30 min: 5 regular then 2 caffeine from halfway. 60g carbs/hr. Water + LMNT.",a:"Aggressive refuel: Chobani + a bagel now, then a big carb and protein meal."}},
+   {id:"2026-08-30",l:"Sun Aug 30",s:"5.5mi Easy + Yoga",f:FE},
+ ]},
+ {n:"Week 16",dates:"Aug 31 to Sep 6",phase:"Peak",days:[
+   {id:"2026-08-31",l:"Mon Aug 31",s:"5mi Easy + Lower Body",f:FES},
+   {id:"2026-09-01",l:"Tue Sep 1",s:"Tempo 2 Miles, 5.5mi",f:FQ},
+   {id:"2026-09-02",l:"Wed Sep 2",s:"Rest",cls:"rest",f:FRST},
+   {id:"2026-09-03",l:"Thu Sep 3",s:"400m Repeats, 4.5mi + Full Body",f:FQ},
+   {id:"2026-09-04",l:"Fri Sep 4",s:"4mi Easy + Stretch",f:FE},
+   {id:"2026-09-05",l:"Sat Sep 5",s:"22mi PEAK, dress rehearsal",cls:"long wake",star:1,g:"9 Maurten · 6+3 caf",f:{b:"Wake early. Your exact race breakfast 2.5 to 3 hr before: whole bagel with honey + banana + oatmeal + coffee. LMNT. Copy whatever works today onto race day.",d:"9 gels, one every 30 min: 6 regular then 3 caffeine from halfway. 60g carbs/hr. Water + LMNT.",a:"Chobani + a bagel now, full meal within the hour, LMNT to rehydrate."}},
+   {id:"2026-09-06",l:"Sun Sep 6",s:"Yoga",cls:"cross",f:FMOB},
+ ]},
+ {n:"Week 17",dates:"Sep 7 to 13",phase:"Taper",days:[
+   {id:"2026-09-07",l:"Mon Sep 7",s:"Lower Body Endurance",cls:"cross",f:FST},
+   {id:"2026-09-08",l:"Tue Sep 8",s:"Steady into Tempo, 5mi",f:FQ},
+   {id:"2026-09-09",l:"Wed Sep 9",s:"4mi Easy",f:FE},
+   {id:"2026-09-10",l:"Thu Sep 10",s:"Broken Miles, 4.5mi + Full Body",f:FQ},
+   {id:"2026-09-11",l:"Fri Sep 11",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-09-12",l:"Sat Sep 12",s:"15mi Race Practice",cls:"long",g:"5 Maurten · 4+1 caf",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking.",d:"5 gels, one every 30 min: 4 regular then 1 caffeine. Water + LMNT.",a:"Chobani + a bagel, then a meal."}},
+   {id:"2026-09-13",l:"Sun Sep 13",s:"5mi Easy + Yoga",f:FE},
+ ]},
+ {n:"Week 18",dates:"Sep 14 to 20",phase:"Taper",days:[
+   {id:"2026-09-14",l:"Mon Sep 14",s:"4.5mi Easy + Full Body",f:FES},
+   {id:"2026-09-15",l:"Tue Sep 15",s:"Progressive Mile Repeats, 5mi",f:FQ},
+   {id:"2026-09-16",l:"Wed Sep 16",s:"Rest",cls:"rest",f:FRST},
+   {id:"2026-09-17",l:"Thu Sep 17",s:"Tempo 2.5mi, 4.5mi + Legs and Core",f:FQ},
+   {id:"2026-09-18",l:"Fri Sep 18",s:"Stretch and Stability",cls:"cross",f:FMOB},
+   {id:"2026-09-19",l:"Sat Sep 19",s:"9mi Long Run",cls:"long",g:"2 Maurten",f:{b:"Bagel with honey or jam + a banana. Coffee. LMNT on waking. First gel at 30 min.",d:"2 Maurten regular gels, at 30 and 75 min. Water + LMNT.",a:"Chobani + a bagel, then a meal."}},
+   {id:"2026-09-20",l:"Sun Sep 20",s:"Yoga",cls:"cross",f:FMOB},
+ ]},
+ {n:"Week 19",dates:"Sep 21 to 27",phase:"Race week",days:[
+   {id:"2026-09-21",l:"Mon Sep 21",s:"Ticking Over, Full Body",cls:"cross",f:FST},
+   {id:"2026-09-22",l:"Tue Sep 22",s:"Taper Fartlek, 5mi",f:FQ},
+   {id:"2026-09-23",l:"Wed Sep 23",s:"Rest",cls:"rest",f:FRST},
+   {id:"2026-09-24",l:"Thu Sep 24",s:"3.75mi Easy",f:FE},
+   {id:"2026-09-25",l:"Fri Sep 25",s:"Stretch. Carb load",cls:"cross",f:{note:"Start raising carbs. Familiar foods, nothing new. Hit 150g protein."}},
+   {id:"2026-09-26",l:"Sat Sep 26",s:"Rest, optional shakeout. Carb load",cls:"rest",f:{note:"Big carb day. Lay out kit and gels tonight. Familiar foods only."}},
+   {id:"2026-09-27",l:"Sun Sep 27",s:"BMW BERLIN MARATHON, 26.2mi",cls:"race",star:1,g:"8 · 4+4 caf",f:{b:"Wake early. Rehearsed breakfast 2.5 to 3 hr before: whole bagel with honey + banana + oatmeal + coffee, 600 to 800 cal. LMNT.",d:"8 gels, one every 30 min: 4 regular, then 4 caffeine from about 26 km. Water with gels, electrolytes at aid stations.",a:"Celebrate, then refuel and rehydrate. You earned it."}},
+ ]},
+];
+/* map date -> fuel entry, used to merge proven before/during/after text into Kevin's day cards */
+const FUEL_BY_DATE={};
+FUEL_WEEKS.forEach(w=>w.days.forEach(d=>{FUEL_BY_DATE[d.id]=d;}));
+
+const KEY="bm2_done";
+
+/* ============ fresh-cook dinner recipes for Prep tab ============ */
+const FRESH={
+ dStir:{title:"Beef Stir Fry",recipe:"Slice 170g flank steak thin, sear hot 2 to 3 min per side, rest, slice. Add 2 cups stir fry vegetables + 1 to 2 tbsp sauce to the same pan, 3 to 4 min. Kevin: over 1 cup rice. Claudia: 140g steak, double vegetables, rice cut to 1/3 cup."},
+ dSalmon:{title:"Baked Salmon",recipe:"Season fillets, bake 400°F 12 to 15 min. Kevin: 6oz fillet + 1 cup rice + asparagus. Claudia: 5oz fillet, double the vegetables, skip the rice."},
+ dSheetT:{title:"Sheet Pan Turkey Sausage",recipe:"Toss potatoes, peppers, onion with oil, roast 400°F 20 min, add sausage links for the last 15 min. Kevin: 2 links + full potatoes. Claudia: 1.5 links, light on potato, extra peppers and onion."},
+ dPork:{title:"Roast Pork Tenderloin",recipe:"Season tenderloin, roast 400°F about 20 to 25 min to 145°F internal, rest 5 min, slice. Kevin: 6oz + sweet potato + green beans. Claudia: 5oz + a small sweet potato + double green beans."},
+ dPasta:{title:"Pasta Night (Carb Load)",recipe:"Boil spaghetti, 130g for Kevin, add 45g extra for Claudia's smaller portion. Simmer marinara with turkey meatballs. Kevin gets the full pasta portion. Claudia: half the pasta, a side salad, same meatballs."},
+ dBurger:{title:"Turkey Burgers",recipe:"Season and grill or pan sear patties. Kevin: bun + cheese + oven fries. Claudia: patty lettuce wrapped with cheese, side salad with vinaigrette instead of fries."},
+ dTaco:{title:"Shrimp Tacos",recipe:"Season and saute shrimp 3 to 4 min until pink, 170g for Kevin, 140g for Claudia. Warm corn tortillas for Kevin. Both get slaw and avocado. Kevin adds rice on the side; Claudia skips the shells and rice and bowls it instead."},
+};
+
+function computeWeekTally(wk){
+  if(!MENUS[wk.menu]) return null;
+  const menu=wk.menu;
+  let chickenG=0, chiliLunchK=0, chiliDinnerK=0, chiliDinnerC=0, riceCups=0, strCount=0;
+  const fresh=[];
+  wk.days.forEach(d=>{
+    const [id,l,run,t,dow]=d;
+    if(t==="STR") strCount++;
+    const ks=kevinMeals(t,dow,menu);
+    if(!ks) return;
+    if(ks.includes("lChx")){chickenG+=140; riceCups+=1;}
+    if(ks.includes("lCarb")){chickenG+=113; riceCups+=1.5;}
+    if(ks.includes("lChili")){chiliLunchK+=2; riceCups+=0.5;}
+    const dinnerKey=(t==="CARB")?"dPasta":MENUS[menu].din[dow];
+    if(dinnerKey==="dChili"){chiliDinnerK+=2.5; riceCups+=0.5;}
+    else if(dinnerKey==="dStir"){riceCups+=1; fresh.push({day:l,...FRESH.dStir});}
+    else if(dinnerKey==="dSalmon"){riceCups+=1; fresh.push({day:l,...FRESH.dSalmon});}
+    else if(dinnerKey==="dTaco"){riceCups+=0.5; fresh.push({day:l,...FRESH.dTaco});}
+    else if(FRESH[dinnerKey]) fresh.push({day:l,...FRESH[dinnerKey]});
+    const cs=claudiaMeals(t,dow,menu);
+    if(cs && cs!=="race" && dinnerKey==="dChili") chiliDinnerC+=1.5;
+  });
+  const eggs=strCount*3+6;
+  return {chickenG,chiliLunchK,chiliDinnerK,chiliDinnerC,riceCups,eggs,fresh};
+}
+function buildPrepCard(wi,wk){
+  const el=document.createElement("div"); el.className="card shop";
+  const t=computeWeekTally(wk);
+  let inner='<div class="crow"><div class="cmeta"><div class="cdate">Sunday '+wk.dates.split(" to ")[0]+'</div><div class="ctitle">\u{1F469}\u200D\u{1F373} '+wk.label+' meal prep</div></div><span class="chev">&#9654;</span></div><div class="body">';
+  if(!t){
+    inner+='<div class="gnote">Travel week, minimal batch prep needed. See the eating guide on the Shopping tab.</div>';
+  }else{
+    const chickenLb=(t.chickenG/453.6).toFixed(1);
+    const chiliTotal=(t.chiliLunchK+t.chiliDinnerK+t.chiliDinnerC).toFixed(1);
+    inner+='<div class="shopgrp">1. Slow Cooker Salsa Chicken — Kevin\'s lunches</div>'
+    +'<div class="mitem"><b>Buy:</b> chicken breast, about '+chickenLb+' lb (round up to 3 lb) + 16oz jar salsa + 1 packet taco seasoning</div>'
+    +'<div class="mitem"><b>Cook:</b> chicken + salsa + seasoning in the slow cooker, low 6 hr, shred with two forks.</div>'
+    +'<div class="mitem"><b>Portion:</b> about '+Math.round(t.chickenG/140)+' lunch containers, 140g (5oz) each. Freeze any extra.</div>';
+
+    inner+='<div class="shopgrp">2. Turkey Chili — shared, lunch and dinner</div>'
+    +'<div class="mitem"><b>Buy:</b> 2 lb ground turkey, 2 cans kidney beans, 28oz crushed tomatoes, chili seasoning, 1 diced onion.</div>'
+    +'<div class="mitem"><b>Cook:</b> brown the turkey, add beans, tomatoes, seasoning, onion. Slow cooker low 5 to 6 hr, or simmer on the stove 45 min.</div>'
+    +'<div class="mitem"><b>Portion:</b> Kevin lunch '+t.chiliLunchK.toFixed(1)+' cups (2-cup containers) &middot; Kevin dinner night '+t.chiliDinnerK.toFixed(1)+' cups &middot; Claudia dinner '+t.chiliDinnerC.toFixed(1)+' cups. Total needed about '+chiliTotal+' cups &mdash; this recipe makes 9 to 10 cups, comfortable with extra to freeze.</div>';
+
+    inner+='<div class="shopgrp">3. Rice Batch</div>'
+    +'<div class="mitem"><b>Cook:</b> 3 cups dry jasmine rice, yields about '+Math.round(t.riceCups)+' cooked cups needed this week. Portion into 1-cup containers, keep one loose batch for Friday\'s bigger lunch.</div>';
+
+    inner+='<div class="shopgrp">4. Hard Boiled Eggs</div>'
+    +'<div class="mitem"><b>Boil:</b> '+t.eggs+' eggs for snacking and quick breakfasts.</div>';
+
+    inner+='<div class="shopgrp">5. Wash and Portion Produce</div>'
+    +'<div class="mitem">Wash and bag spinach, berries, and any stir fry or roasting vegetables for the week. Rinse a can of lentils and portion into small containers for Claudia\'s lunch bowls.</div>';
+
+    inner+='<div class="shopgrp">Fresh-cook nights (cook that day, not Sunday)</div>';
+    t.fresh.forEach(f=>{
+      inner+='<div class="mitem"><b>'+f.day.split(" ").slice(0,2).join(" ")+' \u2014 '+f.title+':</b> '+f.recipe+'</div>';
+    });
+  }
+  inner+='</div>'; el.innerHTML=inner;
+  el.querySelector(".crow").addEventListener("click",()=>el.classList.toggle("open"));
+  return el;
+}
+let done=JSON.parse(localStorage.getItem(KEY)||"{}");
+function save(){localStorage.setItem(KEY,JSON.stringify(done));}
+function tISO(){const n=new Date();return n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");}
+const TID=tISO();
+const CHK='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+const DOWS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+function kevinMeals(t,dow,menu){
+  if(["PORT","BER","RACE"].includes(t))return null;
+  let ks=KSETS[t].slice();
+  const useMenu=(menu&&MENUS[menu])?menu:"A";
+  const din=MENUS[useMenu].din[dow];
+  ks=ks.map(k=>k==="dX"?din:k);
+  const o=MENUS[useMenu].klun[DOWS[dow]];if(o)ks=ks.map(k=>(k==="lChx"||k==="lWrap")?o:k);
+  return ks;
+}
+function claudiaMeals(t,dow,menu){
+  if(["PORT","BER"].includes(t))return null;
+  if(t==="RACE")return "race";
+  const useMenu=(menu&&MENUS[menu])?menu:"A";
+  const din=MENUS[useMenu].din[dow];
+  let ks=CSET.slice();
+  ks=ks.map(k=>k==="dX"?din:(k==="cLX"?(dow%2?"cL2":"cL1"):k));
+  return ks;
+}
+function mealHTML(lib,keys,accent){
+  let tot=[0,0,0,0],h="";
+  keys.forEach(k=>{const m=lib[k];if(!m)return;
+    tot=[tot[0]+m.m[0],tot[1]+m.m[1],tot[2]+m.m[2],tot[3]+m.m[3]];
+    h+='<div class="meal"><div class="mname">'+m.n+'</div>';
+    m.it.forEach(x=>{h+='<div class="mitem">'+x[0]+' <span class="mac">'+(x[1]||"")+'</span></div>';});
+    h+='</div>';});
+  return {html:h,tot:tot};
+}
+function dayCard(paneId,d,menu,who){
+  const [id,l,run,t,dow]=d;
+  const el=document.createElement("div");
+  el.className="card"; const dkey=who+"_"+id;
+  if(done[dkey])el.classList.add("done");
+  if(id===TID)el.classList.add("today","open");
+  const tagCls=(who==="c")?"her":((t==="CARB")?"carb":(t==="LONG")?"long":(t==="PORT"||t==="BER")?"port":(t==="RACE")?"race":"");
+  const tagTxt=(who==="c")?"MEAL PLAN":({EASY:"EASY",QUAL:"QUALITY",STR:"STRENGTH",REST:"REST",CARB:"CARB LOAD",LONG:"LONG RUN",PORT:"PORTUGAL",BER:"BERLIN",RACE:"RACE DAY"})[t];
+  let body="";
+  const fuelMatch=FUEL_BY_DATE[id];
+  const RUN_TYPES=["EASY","QUAL","CARB","LONG"];
+  function snackBlockHTML(lib,key){
+    if(!key||!lib[key]) return "";
+    const sm=lib[key];
+    let h='<div class="meal" style="opacity:.8"><div class="mname">'+sm.n+'</div>';
+    sm.it.forEach(x=>{h+='<div class="mitem">'+x[0]+' <span class="mac">'+(x[1]||"")+'</span></div>';});
+    h+='<div class="note">Optional — not counted in the total above. Have one only if you\'re still hungry.</div></div>';
+    return h;
+  }
+  if(who==="k"){
+    const ks=kevinMeals(t,dow,menu);
+    if(ks){
+      const bfKey=ks.find(k=>k.startsWith("bf"));
+      const snackKey=ks.find(k=>k==="sOpt");
+      const restKeys=ks.filter(k=>k!==bfKey&&k!==snackKey);
+      let tot=[0,0,0,0], bfHTML="";
+      if(bfKey && KM[bfKey]){
+        const bm=KM[bfKey];
+        tot=[tot[0]+bm.m[0],tot[1]+bm.m[1],tot[2]+bm.m[2],tot[3]+bm.m[3]];
+        if(RUN_TYPES.includes(t) && fuelMatch && fuelMatch.f && fuelMatch.f.b){
+          bfHTML='<div class="meal"><div class="mname">Breakfast — before &amp; after your run</div>'
+            +'<div class="mitem"><b>Before:</b> '+fuelMatch.f.b+'</div>'
+            +(fuelMatch.f.a?'<div class="mitem"><b>After:</b> '+fuelMatch.f.a+'</div>':'')
+            +'<div class="mac">'+bm.m[0]+' cal · '+bm.m[1]+'g P · '+bm.m[2]+'g C · '+bm.m[3]+'g F</div></div>';
+        }else{
+          bfHTML=mealHTML(KM,[bfKey]).html;
+        }
+      }
+      const rest=mealHTML(KM,restKeys);
+      tot=[tot[0]+rest.tot[0],tot[1]+rest.tot[1],tot[2]+rest.tot[2],tot[3]+rest.tot[3]];
+      body=bfHTML+rest.html+'<div class="total"><span>'+Math.round(tot[0])+' cal · '+Math.round(tot[1])+'g P · '+Math.round(tot[2])+'g C · '+Math.round(tot[3])+'g F</span><span class="t2">'+KTARGET[t]+'</span></div>';
+      if(RUN_TYPES.includes(t) && fuelMatch && fuelMatch.f && fuelMatch.f.d){
+        body+='<div class="gnote"><b>During the run:</b> '+fuelMatch.f.d+'</div>';
+      }
+      body+=snackBlockHTML(KM,snackKey);
+    }
+    else if(t==="RACE"){
+      if(fuelMatch && fuelMatch.f){
+        body='<div class="meal"><div class="mname">Race morning — before the gun</div><div class="mitem">'+fuelMatch.f.b+'</div></div>'
+          +'<div class="gnote"><b>During the race:</b> '+fuelMatch.f.d+'</div>'
+          +'<div class="meal"><div class="mname">After you finish</div><div class="mitem">'+fuelMatch.f.a+'</div></div>';
+      }else{
+        body='<div class="gnote">Race breakfast 2.5 to 3 hr before, 8 gels every 30 min (4 reg then 4 caf), celebrate after.</div>';
+      }
+    }
+    else{body='<div class="gnote">Eat out, protein first. Guide is on this week\'s Shopping tab.</div>';}
+  }else{
+    const cs=claudiaMeals(t,dow,menu);
+    if(cs==="race"){body='<div class="gnote">Cheer loud, eat well, celebrate Kevin at the finish. Back to plan Monday.</div>';}
+    else if(cs){
+      const snackKey=cs.find(k=>k==="cSnkOpt");
+      const coreKeys=cs.filter(k=>k!==snackKey);
+      const r=mealHTML(CM,coreKeys);
+      body=r.html+'<div class="total"><span>'+Math.round(r.tot[0])+' cal · '+Math.round(r.tot[1])+'g P · '+Math.round(r.tot[2])+'g C · '+Math.round(r.tot[3])+'g F</span><span class="t2">'+CTARGET+'</span></div>';
+      body+=snackBlockHTML(CM,snackKey);
+    }
+    else{body='<div class="gnote">Eating out: protein first, vegetables over bread and rice, yogurt breakfasts. Guide on the Shopping tab.</div>';}
+  }
+  const runLine=(who==="c")?l.split(" ").slice(0,2).join(" ")+" plan":run;
+  el.innerHTML='<div class="crow"><div class="cbox">'+CHK+'</div><div class="cmeta"><div class="cdate">'+l+(id===TID?'<span class="todaytag">TODAY</span>':"")+'</div><div class="ctitle">'+(who==="k"?run:"Daily plan")+'</div></div><span class="tag '+tagCls+'">'+tagTxt+'</span><span class="chev">&#9654;</span></div><div class="body">'+body+'</div>';
+  el.querySelector(".crow").addEventListener("click",e=>{if(e.target.closest(".cbox"))return;el.classList.toggle("open");});
+  el.querySelector(".cbox").addEventListener("click",e=>{e.stopPropagation();
+    if(done[dkey])delete done[dkey];else done[dkey]=true;save();el.classList.toggle("done");updateProg();});
+  return el;
+}
+function shopCard(wi,wk){
+  const el=document.createElement("div");el.className="card shop";
+  let inner='<div class="crow"><div class="cmeta"><div class="cdate">Shop Sunday '+wk.dates.split(" to ")[0]+'</div><div class="ctitle">🛒 '+wk.label+' shopping</div></div><span class="chev">&#9654;</span></div><div class="body">';
+  if(MENUS[wk.menu]){
+    const s=SHOP[wk.menu];
+    inner+='<div class="shopgrp">ShopRite, weekly</div>';
+    s.sr.forEach((it,ii)=>{const iid="s_"+wi+"_sr_"+ii;
+      inner+='<div class="sitem'+(done[iid]?" done":"")+'" data-sid="'+iid+'"><span class="sbox">'+CHK+'</span><span>'+it[0]+'<span class="qty">'+it[1]+'</span></span></div>';});
+    inner+='<div class="shopgrp cost">Costco, stock up every 2 to 3 weeks</div>';
+    s.co.forEach((it,ii)=>{const iid="s_"+wi+"_co_"+ii;
+      inner+='<div class="sitem'+(done[iid]?" done":"")+'" data-sid="'+iid+'"><span class="sbox">'+CHK+'</span><span>'+it[0]+'<span class="qty">'+it[1]+'</span></span></div>';});
+    inner+='<div class="shopgrp">Sunday prep</div>';
+    PREP[wk.menu].forEach((p,pi)=>{const iid="s_"+wi+"_p_"+pi;
+      inner+='<div class="sitem'+(done[iid]?" done":"")+'" data-sid="'+iid+'"><span class="sbox">'+CHK+'</span><span>'+p+'</span></div>';});
+  }else{
+    const g=(wk.menu==="PORT")?PORT_GUIDE:BER_GUIDE;
+    inner+='<div class="shopgrp">'+(wk.menu==="PORT"?"Portugal eating guide":"Berlin eating guide")+'</div>';
+    g.forEach(x=>{inner+='<div class="meal"><div class="mname">'+x[0]+'</div><div class="mitem">'+x[1]+'</div></div>';});
+  }
+  inner+='</div>';el.innerHTML=inner;
+  el.querySelector(".crow").addEventListener("click",()=>el.classList.toggle("open"));
+  el.querySelectorAll(".sitem").forEach(s=>{s.addEventListener("click",e=>{e.stopPropagation();const id=s.dataset.sid;
+    if(done[id])delete done[id];else done[id]=true;save();s.classList.toggle("done");});});
+  return el;
+}
+function wkHead(wk,extra){
+  const wh=document.createElement("div");wh.className="wkhead";
+  wh.innerHTML='<span class="wkno">'+wk.label+'</span><span class="wkdates">'+wk.dates+'</span><span class="wkmenu">'+(MENUS[wk.menu]?("Menu "+wk.menu):(wk.menu==="PORT"?"Portugal":"Race week"))+'</span>';
+  return wh;
+}
+function render(){
+  const pk=document.getElementById("pane-kevin"),pc=document.getElementById("pane-claudia"),pp=document.getElementById("pane-prep"),ps=document.getElementById("pane-shopping");
+  pk.innerHTML='<div class="legend"><b>Kevin:</b> normal days 2,300 to 2,500 cal, 150g+ protein. Carb load Fridays 350g+ carbs. Long run Saturdays about 2,900, eat it all. Breakfast doubles as your before and after run fuel on training days; during-run gels and LMNT are noted separately below.</div>';
+  pc.innerHTML='<div class="legend her"><b>Claudia:</b> about 1,450 to 1,550 cal, 120g+ protein, carbs limited, fiber 25g+, iron built in (beef, lentils, spinach). Same dinners as Kevin, her portions. No training plan, meals only. Confirm targets with your doctor.</div>';
+  pp.innerHTML='<div class="legend"><b>Sunday prep:</b> exact batch recipes, quantities, and portioning for the week, plus which dinners are cooked fresh on the night rather than prepped ahead.</div>';
+  ps.innerHTML='<div class="legend"><b>Shopping:</b> ShopRite list is weekly. Costco section is a stock up run every 2 to 3 weeks, check levels before going. Tap items off in the store. Sunday prep now has its own tab.</div>';
+  WEEKS.forEach((wk,wi)=>{
+    pk.appendChild(wkHead(wk));pc.appendChild(wkHead(wk));pp.appendChild(wkHead(wk));ps.appendChild(wkHead(wk));
+    pp.appendChild(buildPrepCard(wi,wk));
+    ps.appendChild(shopCard(wi,wk));
+    wk.days.forEach(d=>{pk.appendChild(dayCard("k",d,wk.menu,"k"));pc.appendChild(dayCard("c",d,wk.menu,"c"));});
+  });
+  updateProg();
+}
+let TAB="kevin";
+const hideState={kevin:false,claudia:false};
+function applyHideTab(tab){
+  document.querySelectorAll("#pane-"+tab+" .card.done").forEach(d=>d.classList.toggle("hide",hideState[tab]));
+}
+function updateProg(){
+  if(TAB==="shopping"||TAB==="prep"){document.getElementById("pt").textContent=TAB==="prep"?"Tap a week to see Sunday's recipes":"Tap items off as you shop";document.getElementById("pf").style.width="0%";return;}
+  const who=TAB==="claudia"?"c":"k";
+  let total=0;WEEKS.forEach(w=>total+=w.days.length);
+  const n=Object.keys(done).filter(k=>k.startsWith(who+"_")&&done[k]).length;
+  document.getElementById("pf").style.width=(total?(n/total*100):0)+"%";
+  document.getElementById("pt").textContent=n+" of "+total+" days done ("+(TAB==="claudia"?"Claudia":"Kevin")+")";
+}
+document.querySelectorAll(".tab").forEach(t=>{t.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");
+  TAB=t.dataset.tab;
+  ["kevin","claudia","prep","shopping"].forEach(p=>{document.getElementById("pane-"+p).classList.toggle("hidden",p!==TAB);});
+  const hideBtn=document.getElementById("hideBtn");
+  hideBtn.style.display=(TAB==="prep"||TAB==="shopping")?"none":"";
+  if(hideState[TAB]!==undefined) hideBtn.textContent=hideState[TAB]?"Show all":"Hide done";
+  updateProg();
+});});
+document.getElementById("todayBtn").addEventListener("click",()=>{
+  const pane=document.getElementById("pane-"+((TAB==="shopping"||TAB==="prep")?"kevin":TAB));
+  const t=pane.querySelector(".card.today");
+  if(t){t.classList.add("open");t.scrollIntoView({behavior:"smooth",block:"center"});}
+  else alert("The plan runs Jul 12 to Sep 27.");
+});
+document.getElementById("hideBtn").addEventListener("click",function(){
+  if(hideState[TAB]===undefined) return;
+  hideState[TAB]=!hideState[TAB];
+  this.textContent=hideState[TAB]?"Show all":"Hide done";
+  applyHideTab(TAB);
+});
+document.getElementById("resetBtn").addEventListener("click",()=>{
+  if(TAB==="kevin"||TAB==="claudia"){
+    const prefix=(TAB==="claudia"?"c_":"k_");
+    if(confirm("Clear "+(TAB==="claudia"?"Claudia's":"Kevin's")+" checkmarks on this tab?")){
+      Object.keys(done).filter(k=>k.startsWith(prefix)).forEach(k=>delete done[k]);
+      save();render();
+    }
+    return;
+  }
+  if(TAB==="shopping"){
+    if(confirm("Clear all shopping checkmarks?")){
+      Object.keys(done).filter(k=>k.startsWith("s_")).forEach(k=>delete done[k]);
+      save();render();
+    }
+    return;
+  }
+});
+document.getElementById("a2hsClose").addEventListener("click",()=>{
+  document.getElementById("a2hs").style.display="none";
+  try{localStorage.setItem("bfc_a2hs","1");}catch(e){}
+});
+if(localStorage.getItem("bfc_a2hs")||window.navigator.standalone){
+  document.getElementById("a2hs").style.display="none";
+}
+document.getElementById("footnote").textContent="Macros are close estimates, log actuals in MyFitnessPal. Chobani = Complete shake. Orgain = 2 scoops. Claudia's targets are estimates, confirm with her doctor.";
+render();
+window.addEventListener("load",()=>{const t=document.querySelector("#pane-kevin .card.today");if(t)setTimeout(()=>t.scrollIntoView({behavior:"smooth",block:"center"}),200);});
+</script>
+</body>
+</html>
